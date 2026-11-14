@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="id" data-tema="gelap">
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="kkmp-versi" content="2026.11.14-1">
+  <title>Portal Monitoring KKMP Kota Ternate</title>
+  <script>
+    (function () {
+      var t = 'gelap';
+      try { t = localStorage.getItem('kkmp_tema') === 'terang' ? 'terang' : 'gelap'; } catch (e) { t = 'gelap'; }
+      document.documentElement.setAttribute('data-tema', t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&icon_names=add,add_a_photo,add_circle,add_task,analytics,apartment,arrow_back,assignment,attach_file,auto_awesome,badge,bar_chart,block,calendar_today,call,cancel,chat,chat_bubble,check,check_circle,chevron_left,chevron_right,close,cloud_done,cloud_upload,construction,contact_support,content_copy,dark_mode,delete,delete_forever,description,donut_large,download,draft,drafts,edit,error,event,fact_check,feed,filter_alt_off,folder,folder_open,format_bold,format_italic,format_list_bulleted,gavel,groups,history_edu,home,hub,image,image_not_supported,info,insert_chart,insights,language,light_mode,lightbulb,link,location_city,location_on,lock,login,logout,mail,manage_accounts,map,mark_email_unread,menu,menu_book,monitoring,newspaper,off,open_in_full,open_in_new,password,pending,person,person_add,photo_camera,photo_library,picture_as_pdf,policy,polite,print,priority_high,progress_activity,public,refresh,reply,rule,save,schedule,search,send,settings,share,share_location,smart_display,smart_toy,space_dashboard,star,sticky_note_2,store,storefront,support_agent,sync,table_view,task_alt,thumb_up,tune,upload_file,url,verified,verified_user,view_carousel,visibility,visibility_off,warning,workspace_premium&display=block">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body>
+<a class="lewati" href="#konten-utama" id="lewati">Lewati ke konten utama</a>
+
+<!-- ===== BLOK: PEMUAT_AWAL ===== -->
+<div id="pemuat-awal" class="pemuat-awal" role="status" aria-live="polite">
+  <img class="pemuat-logo" src="img/logo.png" alt="">
+  <span class="pemuat-garis" aria-hidden="true"><span></span></span>
+  <span class="pemuat-teks">Memuat Portal Monitoring KKMP...</span>
+</div>
+<!-- ===== AKHIR BLOK: PEMUAT_AWAL ===== -->
+
+
+<!-- ===================================================================== -->
+<!-- ===== BLOK: PORTAL_PUBLIK ===== -->
+<div id="app-publik" class="app-publik" hidden>
+
+  <!-- ===== BLOK: HEADER_PUBLIK ===== -->
+  <header class="nav-atas">
+    <div class="wadah nav-wadah">
+      <a class="merek" href="#" data-go="beranda" aria-label="KKMP Kota Ternate, kembali ke Beranda">
+        <img class="merek-logo" src="img/logo.png" alt="Logo Koperasi Kelurahan Merah Putih">
+        <span class="merek-teks">
+          <span class="merek-judul">KOPKEL <b>MERAH PUTIH</b></span>
+          <span class="merek-sub" data-cfg="app_tagline">Kota Ternate</span>
+        </span>
+      </a>
+      <nav class="nav-utama" id="pub-nav" aria-label="Navigasi utama">
+        <a class="nav-link" href="#" data-go="beranda"><span class="ik" aria-hidden="true">home</span><span>Beranda</span></a>
+        <a class="nav-link" href="#" data-go="dashboard"><span class="ik" aria-hidden="true">monitoring</span><span>Dashboard</span></a>
+        <a class="nav-link" href="#" data-go="pustaka"><span class="ik" aria-hidden="true">menu_book</span><span>Pustaka</span></a>
+        <a class="nav-link" href="#" data-go="berita"><span class="ik" aria-hidden="true">newspaper</span><span>Berita</span></a>
+        <a class="nav-link" href="#" data-go="kontak"><span class="ik" aria-hidden="true">support_agent</span><span>Kontak Kami</span></a>
+      </nav>
+      <div class="nav-aksi">
+        <button class="btn btn-ikon btn-hantu asisten-header" type="button" data-asisten aria-haspopup="dialog" aria-controls="asisten" title="Asisten Data KKMP">
+          <span class="ik" aria-hidden="true">auto_awesome</span><span class="sr">Buka Asisten Data KKMP</span>
+        </button>
+        <button class="btn btn-ikon btn-hantu btn-tema" type="button" data-tema-toggle title="Ganti mode tampilan">
+          <span class="ik ik-gelap" aria-hidden="true">light_mode</span><span class="ik ik-terang" aria-hidden="true">dark_mode</span>
+          <span class="sr">Ganti mode terang atau gelap</span>
+        </button>
+        <a class="btn btn-utama btn-login" href="#" data-go="login"><span class="ik" aria-hidden="true">login</span><span>Masuk</span></a>
+      </div>
+    </div>
+  </header>
+  <!-- ===== AKHIR BLOK: HEADER_PUBLIK ===== -->
+
+  <main class="pub-main" id="konten-utama" tabindex="-1">
+
+    <!-- ===== BLOK: M1_BERANDA ===== -->
+    <div class="halaman" id="pg-beranda" data-hal="beranda">
+      <section class="hero" aria-labelledby="hero-h1">
+        <div class="wadah hero-grid">
+          <div class="hero-utama">
+            <div class="hero-bg aktif" id="hero-bg" aria-hidden="true"></div>
+            <div class="hero-bg" id="hero-bg-b" aria-hidden="true"></div>
+            <div class="hero-isi" role="region" aria-roledescription="carousel" aria-label="Sorotan program">
+              <div class="hero-teks" id="hero-isi" aria-live="off" aria-atomic="true">
+                <span class="eyebrow eyebrow-kaca"><span class="titik-denyut" aria-hidden="true"></span><span id="hero-atas">Portal Resmi · <span data-cfg="app_tagline">Kota Ternate</span></span></span>
+                <h1 class="h-hero kinetik" id="hero-h1"><span id="hero-judul"><span class="kata">Portal</span> <span class="kata">Monitoring</span> <span class="kata teks-merah">KKMP</span> <span class="kata">Kota</span> <span class="kata">Ternate</span></span></h1>
+                <p class="lead hero-lead" id="hero-sub">Pusat integrasi data, pengawasan transparansi usaha bersama, dan akselerasi kemandirian Koperasi Kelurahan Merah Putih se-Kota Ternate.</p>
+              </div>
+              <div class="hero-bawah">
+                <div class="hero-cta">
+                  <a class="btn btn-utama btn-besar" href="#" data-go="dashboard"><span class="ik" aria-hidden="true">monitoring</span><span>Buka Dashboard</span></a>
+                  <a class="btn btn-sekunder btn-besar" href="#" data-go="berita"><span class="ik" aria-hidden="true">newspaper</span><span>Berita Terkini</span></a>
+                </div>
+                <div class="hero-nav" id="hero-nav" hidden>
+                  <p class="hero-nav-info"><span class="hero-nomor" id="hero-nomor">01 / 01</span><span class="hero-nama" id="hero-nama">Sorotan</span></p>
+                  <div class="sorotan-kontrol">
+                    <button class="btn btn-ikon btn-kaca" id="hero-prev" type="button" aria-label="Sorotan sebelumnya"><span class="ik" aria-hidden="true">chevron_left</span></button>
+                    <div class="titik-slide" id="hero-titik" role="group" aria-label="Pilih sorotan"></div>
+                    <button class="btn btn-ikon btn-kaca" id="hero-next" type="button" aria-label="Sorotan berikutnya"><span class="ik" aria-hidden="true">chevron_right</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" aria-labelledby="ringkas-h2">
+        <div class="wadah">
+          <div class="sec-head">
+            <div><span class="eyebrow">Ringkasan Program</span><h2 class="h-sec" id="ringkas-h2">Statistik Singkat KKMP</h2></div>
+            <a class="tautan-panah" href="#" data-go="dashboard">Dashboard lengkap<svg class="ik-panah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M7 7h10v10"/><path vector-effect="non-scaling-stroke" d="M7 17 17 7"/></svg></a>
+          </div>
+          <div class="bento">
+            <article class="kartu stat k-3 kartu-angkat">
+              <div class="stat-atas"><span class="stat-label">Kelurahan KKMP</span><span class="stat-ikon si-merah" aria-hidden="true"><span class="ik">location_city</span></span></div>
+              <span class="stat-angka" id="st-kelurahan" data-hitung>–</span>
+              <span class="stat-sub">Koperasi terdata di sistem</span>
+            </article>
+            <article class="kartu stat k-3 kartu-angkat">
+              <div class="stat-atas"><span class="stat-label">Koperasi Terbentuk</span><span class="stat-ikon si-biru" aria-hidden="true"><span class="ik">badge</span></span></div>
+              <span class="stat-angka" id="st-nib" data-hitung>–</span>
+              <div class="progres" role="presentation"><div class="progres-isi pi-biru" id="st-nib-bar"></div></div>
+            </article>
+            <article class="kartu stat k-3 kartu-angkat">
+              <div class="stat-atas"><span class="stat-label">Verifikasi RAT</span><span class="stat-ikon si-teal" aria-hidden="true"><span class="ik">fact_check</span></span></div>
+              <span class="stat-angka" id="st-verif" data-hitung>–</span>
+              <div class="progres" role="presentation"><div class="progres-isi pi-teal" id="st-verif-bar"></div></div>
+            </article>
+            <article class="kartu stat k-3 kartu-angkat">
+              <div class="stat-atas"><span class="stat-label">Gerai Aktif</span><span class="stat-ikon si-hijau" aria-hidden="true"><span class="ik">storefront</span></span></div>
+              <span class="stat-angka" id="st-gerai" data-hitung>–</span>
+              <span class="stat-sub">Sudah mulai beroperasi</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec sec-rapat" aria-labelledby="jelajah-h2">
+        <div class="wadah">
+          <h2 class="sr" id="jelajah-h2">Jelajahi Portal</h2>
+          <div class="bento">
+            <a class="kartu kartu-nav kartu-nav-utama k-6" href="#" data-go="dashboard">
+              <span class="kartu-nav-ikon" aria-hidden="true"><span class="ik">monitoring</span></span>
+              <span class="kartu-nav-judul">Dashboard Monitoring</span>
+              <span class="kartu-nav-desk">Statistik legalitas, perkembangan RAT, dan progres pembangunan gerai per kecamatan dan kelurahan.</span>
+              <span class="kartu-nav-panah" aria-hidden="true"><svg class="ik-panah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M7 7h10v10"/><path vector-effect="non-scaling-stroke" d="M7 17 17 7"/></svg></span>
+            </a>
+            <a class="kartu kartu-nav k-3" href="#" data-go="pustaka">
+              <span class="kartu-nav-ikon kni-biru" aria-hidden="true"><span class="ik">menu_book</span></span>
+              <span class="kartu-nav-judul">Pustaka Dokumen</span>
+              <span class="kartu-nav-desk">Regulasi, juknis, dan laporan resmi.</span>
+              <span class="kartu-nav-panah" aria-hidden="true"><svg class="ik-panah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M7 7h10v10"/><path vector-effect="non-scaling-stroke" d="M7 17 17 7"/></svg></span>
+            </a>
+            <a class="kartu kartu-nav k-3" href="#" data-go="kontak">
+              <span class="kartu-nav-ikon kni-teal" aria-hidden="true"><span class="ik">support_agent</span></span>
+              <span class="kartu-nav-judul">Layanan &amp; Pengaduan</span>
+              <span class="kartu-nav-desk">Konsultasi dan aspirasi publik.</span>
+              <span class="kartu-nav-panah" aria-hidden="true"><svg class="ik-panah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M7 7h10v10"/><path vector-effect="non-scaling-stroke" d="M7 17 17 7"/></svg></span>
+            </a>
+            <div class="kartu kartu-asisten k-12">
+              <div class="kartu-asisten-kiri">
+                <span class="kartu-nav-ikon kni-ungu" aria-hidden="true"><span class="ik">auto_awesome</span></span>
+                <div>
+                  <h3 class="h-kartu">Asisten Data KKMP</h3>
+                  <p class="teks-redup">Ringkasan perkembangan, analisis per kecamatan, progres gerai, RAT, dan rekomendasi tindak lanjut — disusun otomatis dari data monitoring.</p>
+                </div>
+              </div>
+              <button class="btn btn-sekunder" type="button" data-asisten aria-haspopup="dialog" aria-controls="asisten"><span class="ik" aria-hidden="true">chat</span><span>Buka Asisten</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" aria-labelledby="berita-h2">
+        <div class="wadah">
+          <div class="sec-head">
+            <div><span class="eyebrow">Warta Program</span><h2 class="h-sec" id="berita-h2">Berita Terkini &amp; Informasi Program</h2></div>
+            <a class="tautan-panah" href="#" data-go="berita">Semua berita<svg class="ik-panah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M7 7h10v10"/><path vector-effect="non-scaling-stroke" d="M7 17 17 7"/></svg></a>
+          </div>
+          <div class="bento bento-atas">
+            <div class="k-7" id="beranda-unggulan"><div class="kartu skel skel-besar"></div></div>
+            <div class="k-5 daftar-kecil" id="beranda-daftar">
+              <div class="kartu skel skel-baris"></div><div class="kartu skel skel-baris"></div><div class="kartu skel skel-baris"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" aria-labelledby="ig-h2">
+        <div class="wadah">
+          <div class="sec-head">
+            <div><span class="eyebrow">Info Grafis</span><h2 class="h-sec" id="ig-h2">Indikator Program KKMP Kota Ternate</h2></div>
+            <div class="sorotan-kontrol">
+              <button class="btn btn-ikon btn-sekunder" id="ig-prev" type="button" aria-label="Infografis sebelumnya"><span class="ik" aria-hidden="true">chevron_left</span></button>
+              <button class="btn btn-ikon btn-sekunder" id="ig-next" type="button" aria-label="Infografis berikutnya"><span class="ik" aria-hidden="true">chevron_right</span></button>
+            </div>
+          </div>
+          <div class="kartu ig-papan" id="ig-papan">
+            <div class="ig-visual" id="ig-visual"><div class="skel skel-kotak"></div></div>
+            <div class="ig-samping">
+              <div class="ig-kepala">
+                <span class="stat-ikon si-merah" aria-hidden="true"><span class="ik" id="ig-ikon">insert_chart</span></span>
+                <div><span class="eyebrow" id="ig-kicker">Infografis</span><h3 class="h-kartu" id="ig-judul">Info Grafis KKMP</h3></div>
+              </div>
+              <p class="teks-redup" id="ig-ket">-</p>
+              <span class="lencana ln-info"><span class="ik" aria-hidden="true">verified</span><span id="ig-validasi">Validasi PMO</span></span>
+              <a class="btn btn-sekunder" id="ig-unduh" href="#" target="_blank" rel="noopener"><span class="ik" id="ig-unduh-ikon" aria-hidden="true">open_in_new</span><span>Buka berkas resmi</span></a>
+              <div class="ig-tautan">
+                <a class="tautan" id="ig-simkopdes" href="#" target="_blank" rel="noopener noreferrer"><span class="ik" aria-hidden="true">language</span><span>Simkopdes<span class="sr"> (tab baru)</span></span></a>
+              </div>
+              <div class="titik-slide" id="ig-indikator" role="group" aria-label="Pilih infografis"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- ===== AKHIR BLOK: M1_BERANDA ===== -->
+
+
+    <!-- ===== BLOK: M2_DASHBOARD ===== -->
+    <div class="halaman" id="pg-dashboard" data-hal="dashboard" hidden>
+      <div class="wadah hal-wadah">
+        <header class="judul-hal">
+          <div>
+            <span class="eyebrow">Dashboard Monitoring</span>
+            <h1 class="h-hal">Monitoring KKMP Kota Ternate</h1>
+            <p class="lead">Rekapitulasi legalitas, Rapat Anggota Tahunan, dan progres pembangunan gedung/gerai koperasi kelurahan.</p>
+          </div>
+          <div class="judul-hal-aksi">
+            <span class="lencana ln-sukses"><span class="ik" aria-hidden="true">sync</span>Data per <b id="db-update">-</b></span>
+            <button class="btn btn-sekunder" type="button" data-asisten aria-haspopup="dialog" aria-controls="asisten"><span class="ik" aria-hidden="true">auto_awesome</span><span>Analisis Asisten</span></button>
+          </div>
+        </header>
+
+        <section class="bento" aria-label="Ringkasan kelembagaan">
+          <article class="kartu kartu-merah k-5 total-kartu">
+            <div class="stat-atas"><span class="stat-label">Total Koperasi KKMP</span><span class="stat-ikon si-putih" aria-hidden="true"><span class="ik">hub</span></span></div>
+            <span class="angka-raksasa" id="db-total" data-hitung>–</span>
+            <p class="total-sub">Koperasi Kelurahan Merah Putih terdata di <b id="db-kec-terdata">0</b> kecamatan</p>
+            <div class="total-target">
+              <div class="lapis-meter-baris"><span>Capaian terhadap target kelurahan</span><b id="db-target-pct">0%</b></div>
+              <div class="progres progres-putih"><div class="progres-isi pi-putih" id="db-target-bar"></div></div>
+              <span class="total-ket" id="db-target-ket">-</span>
+            </div>
+          </article>
+          <article class="kartu k-7">
+            <div class="kartu-head">
+              <div><h2 class="h-kartu">Kelengkapan Administrasi</h2><p class="teks-redup">Persentase koperasi yang telah melengkapi legalitas dan registrasi.</p></div>
+              <span class="lencana ln-merah"><span class="ik" aria-hidden="true">workspace_premium</span>Indeks <b id="db-indeks">0%</b></span>
+            </div>
+            <div class="cincin-grid">
+              <div class="cincin-item"><div class="cincin" data-cincin="db-bh" style="--n:0"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="cincin-jalur" cx="18" cy="18" r="15.9"/><circle class="cincin-isi ci-merah" cx="18" cy="18" r="15.9"/></svg><span class="cincin-pct" id="db-bh-pct">0%</span></div>
+                <span class="cincin-label">Berbadan Hukum</span><span class="cincin-sub"><b id="db-bh">0</b> koperasi</span></div>
+              <div class="cincin-item"><div class="cincin" data-cincin="db-nib" style="--n:0"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="cincin-jalur" cx="18" cy="18" r="15.9"/><circle class="cincin-isi ci-biru" cx="18" cy="18" r="15.9"/></svg><span class="cincin-pct" id="db-nib-pct">0%</span></div>
+                <span class="cincin-label">NIB (OSS)</span><span class="cincin-sub"><b id="db-nib">0</b> koperasi</span></div>
+              <div class="cincin-item"><div class="cincin" data-cincin="db-npwp" style="--n:0"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="cincin-jalur" cx="18" cy="18" r="15.9"/><circle class="cincin-isi ci-teal" cx="18" cy="18" r="15.9"/></svg><span class="cincin-pct" id="db-npwp-pct">0%</span></div>
+                <span class="cincin-label">NPWP</span><span class="cincin-sub"><b id="db-npwp">0</b> koperasi</span></div>
+              <div class="cincin-item"><div class="cincin" data-cincin="db-akun" style="--n:0"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="cincin-jalur" cx="18" cy="18" r="15.9"/><circle class="cincin-isi ci-kuning" cx="18" cy="18" r="15.9"/></svg><span class="cincin-pct" id="db-akun-pct">0%</span></div>
+                <span class="cincin-label">Akun Sistem</span><span class="cincin-sub"><b id="db-akun">0</b> koperasi</span></div>
+            </div>
+          </article>
+
+          <article class="kartu k-5">
+            <div class="kartu-head"><div><h2 class="h-kartu">Perkembangan RAT</h2><p class="teks-redup">Status Rapat Anggota Tahunan terakhir tiap koperasi.</p></div></div>
+            <div class="donat-baris">
+              <div class="donat">
+                <svg class="donat-svg" viewBox="0 0 120 120" role="img" aria-labelledby="donat-judul">
+                  <title id="donat-judul">Diagram status RAT</title>
+                  <circle class="donat-jalur" cx="60" cy="60" r="46"/>
+                  <circle class="donat-seg ds-sudah" id="dn2-sudah" cx="60" cy="60" r="46" tabindex="0"><title>Sudah RAT</title></circle>
+                  <circle class="donat-seg ds-draft" id="dn2-draft" cx="60" cy="60" r="46" tabindex="0"><title>Sedang RAT / Draft</title></circle>
+                  <circle class="donat-seg ds-belum" id="dn2-belum" cx="60" cy="60" r="46" tabindex="0"><title>Belum RAT</title></circle>
+                </svg>
+                <div class="donat-tengah"><span class="donat-angka" id="db-rat-pct">0%</span><span class="donat-label">Sudah RAT</span></div>
+              </div>
+              <ul class="legenda">
+                <li><span class="leg-titik lt-teal" aria-hidden="true"></span><span>Sudah RAT</span><b id="db-rat-sudah">0</b></li>
+                <li><span class="leg-titik lt-kuning" aria-hidden="true"></span><span>Sedang / Draft</span><b id="db-rat-draft">0</b></li>
+                <li><span class="leg-titik lt-merah" aria-hidden="true"></span><span>Belum RAT</span><b id="db-rat-belum">0</b></li>
+              </ul>
+            </div>
+            <div class="mini-stat-baris">
+              <div class="mini-stat"><span class="ik" aria-hidden="true">description</span><div><b id="db-rat-lapor">0</b><span>Laporan RAT dilaporkan</span></div></div>
+              <div class="mini-stat"><span class="ik" aria-hidden="true">verified</span><div><b id="db-rat-verif">0</b><span>Diverifikasi Dinas</span></div></div>
+            </div>
+          </article>
+
+          <article class="kartu k-7 kartu-gerai">
+            <div class="kartu-head">
+              <div><h2 class="h-kartu">Progres Pembangunan Gerai</h2><p class="teks-redup">Kesiapan gedung/gerai KKMP terhadap target kelurahan.</p></div>
+              <div class="angka-sedang"><span id="db-selesai-angka">0%</span><small>selesai</small></div>
+            </div>
+            <div class="gerai-blok">
+              <div class="bar-besar" role="presentation"><div class="bar-besar-isi" id="db-selesai-bar"><span id="db-selesai-bar-teks"></span></div></div>
+              <p class="teks-kecil teks-redup" id="db-selesai-pct">0 gerai selesai dari target kelurahan</p>
+            </div>
+            <ul class="legenda legenda-baris legenda-gerai">
+              <li><span class="leg-titik lt-merah" aria-hidden="true"></span><span>Belum mulai</span><b id="db-belum-mulai">0</b></li>
+              <li><span class="leg-titik lt-kuning" aria-hidden="true"></span><span>Sedang dibangun</span><b id="db-sedang">0</b></li>
+              <li><span class="leg-titik lt-hijau" aria-hidden="true"></span><span>Selesai 100%</span><b id="db-selesai">0</b></li>
+            </ul>
+            <div class="rata-gerai">
+              <div class="rata-gerai-atas"><span>Rata-rata progres fisik seluruh gerai</span><b id="db-rata-progres">0%</b></div>
+              <div class="progres" role="presentation"><div class="progres-isi pi-hijau" id="db-rata-bar"></div></div>
+              <p class="teks-kecil teks-redup" id="db-rata-ket">Belum ada data progres gerai.</p>
+            </div>
+            <div class="mini-stat-baris mini-stat-3">
+              <div class="mini-stat"><span class="ik" aria-hidden="true">share_location</span><div><b id="db-lahan">0</b><span>Lahan terverifikasi</span></div></div>
+              <div class="mini-stat"><span class="ik" aria-hidden="true">fact_check</span><div><b id="db-verval">0</b><span>Sudah Verval</span></div></div>
+              <div class="mini-stat"><span class="ik" aria-hidden="true">cloud_done</span><div><b id="db-simkopdes">0</b><span>Lapor SIMKOPDES</span></div></div>
+            </div>
+          </article>
+
+          <article class="kartu k-12">
+            <div class="kartu-head">
+              <div><h2 class="h-kartu">Sebaran per Kecamatan</h2><p class="teks-redup">Pilih indikator, lalu pilih batang kecamatan untuk melihat rinciannya dan menyaring tabel data.</p></div>
+              <div class="segmen" id="kec-metrik" role="radiogroup" aria-label="Indikator grafik kecamatan">
+                <button type="button" class="segmen-btn aktif" role="radio" aria-checked="true" data-metrik="kop">Koperasi</button>
+                <button type="button" class="segmen-btn" role="radio" aria-checked="false" data-metrik="nib">NIB</button>
+                <button type="button" class="segmen-btn" role="radio" aria-checked="false" data-metrik="rat">RAT</button>
+                <button type="button" class="segmen-btn" role="radio" aria-checked="false" data-metrik="gerai">Gerai</button>
+              </div>
+            </div>
+            <div class="kec-grid">
+              <div class="kec-chart" id="kec-chart" role="list" aria-label="Grafik batang per kecamatan"><div class="skel skel-chart"></div></div>
+              <aside class="kec-detail" id="kec-detail" aria-live="polite">
+                <span class="eyebrow">Rincian</span>
+                <h3 class="h-kartu">Pilih kecamatan</h3>
+                <p class="teks-redup">Rincian kecamatan tampil di sini.</p>
+              </aside>
+            </div>
+          </article>
+
+          <article class="kartu k-12 kartu-tabel">
+            <div class="kartu-head">
+              <div><h2 class="h-kartu">Tabel Data Monitoring</h2><p class="teks-redup">Data koperasi per kelurahan, aktivitas RAT, dan pembangunan fisik gerai.</p></div>
+            </div>
+            <div class="tab-daftar" role="tablist" aria-label="Pilih tabel data">
+              <button class="tab-btn aktif" role="tab" type="button" id="tab-kel" aria-selected="true" aria-controls="panel-kel"><span class="ik" aria-hidden="true">location_city</span>Data Kelurahan</button>
+              <button class="tab-btn" role="tab" type="button" id="tab-rat" aria-selected="false" aria-controls="panel-rat" tabindex="-1"><span class="ik" aria-hidden="true">groups</span>Aktivitas RAT</button>
+              <button class="tab-btn" role="tab" type="button" id="tab-gerai" aria-selected="false" aria-controls="panel-gerai" tabindex="-1"><span class="ik" aria-hidden="true">storefront</span>Pembangunan Gerai</button>
+            </div>
+
+            <div class="tab-panel" id="panel-kel" role="tabpanel" aria-labelledby="tab-kel">
+              <div class="toolbar">
+                <div class="medan medan-kecil"><label class="sr" for="db-kel-kec">Filter kecamatan</label>
+                  <select class="input" id="db-kel-kec"><option value="">Semua Kecamatan</option></select></div>
+                <div class="medan medan-cari"><label class="sr" for="db-kel-cari">Cari koperasi atau kelurahan</label>
+                  <span class="ik medan-ikon" aria-hidden="true">search</span><input class="input" id="db-kel-cari" type="search" placeholder="Cari koperasi atau kelurahan..."></div>
+                <button class="btn btn-navy btn-ekspor-kop" id="db-kel-ekspor" type="button" data-ekspor-kop><svg class="ik-lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span>Ekspor Rekapitulasi (Excel)</span></button>
+              </div>
+              <div class="tabel-wadah" tabindex="0" role="region" aria-label="Tabel data koperasi per kelurahan">
+                <table class="tabel">
+                  <thead><tr><th scope="col" class="tc">No</th><th scope="col">Kecamatan</th><th scope="col">Kelurahan</th><th scope="col">Nama KKMP</th><th scope="col" class="tc">Badan Hukum</th><th scope="col" class="tc">NIKOP</th><th scope="col" class="tc">NIB</th><th scope="col" class="tc">NPWP</th><th scope="col" class="tc">Akun</th><th scope="col" class="tc">Status RAT</th></tr></thead>
+                  <tbody id="db-kel-body"><tr><td colspan="10" class="sel-memuat">Memuat data...</td></tr></tbody>
+                </table>
+              </div>
+              <div class="tabel-kaki"><span class="teks-kecil teks-redup" id="db-kel-info"></span><nav class="pag" id="db-kel-pag" aria-label="Halaman data kelurahan"></nav></div>
+            </div>
+
+            <div class="tab-panel" id="panel-rat" role="tabpanel" aria-labelledby="tab-rat" hidden>
+              <div class="toolbar">
+                <div class="medan medan-kecil"><label class="sr" for="db-rat-kec">Filter kecamatan</label>
+                  <select class="input" id="db-rat-kec"><option value="">Semua Kecamatan</option></select></div>
+                <div class="medan medan-cari"><label class="sr" for="db-rat-cari">Cari koperasi, kelurahan, atau tempat</label>
+                  <span class="ik medan-ikon" aria-hidden="true">search</span><input class="input" id="db-rat-cari" type="search" placeholder="Cari koperasi atau kelurahan..."></div>
+              </div>
+              <div class="tabel-wadah" tabindex="0" role="region" aria-label="Tabel aktivitas RAT">
+                <table class="tabel">
+                  <thead><tr><th scope="col" class="tc">No</th><th scope="col">Kecamatan</th><th scope="col">Kelurahan</th><th scope="col">Nama KKMP</th><th scope="col">Alamat</th><th scope="col" class="tc">Ke-</th><th scope="col" class="tc">Tahun</th><th scope="col">Tanggal</th><th scope="col">Tempat</th><th scope="col" class="tc">Status</th></tr></thead>
+                  <tbody id="db-rat-body"><tr><td colspan="10" class="sel-memuat">Memuat data...</td></tr></tbody>
+                </table>
+              </div>
+              <div class="tabel-kaki"><span class="teks-kecil teks-redup" id="db-rat-info"></span><nav class="pag" id="db-rat-pag" aria-label="Halaman data RAT"></nav></div>
+            </div>
+
+            <div class="tab-panel" id="panel-gerai" role="tabpanel" aria-labelledby="tab-gerai" hidden>
+              <div class="toolbar">
+                <div class="medan medan-cari"><label class="sr" for="db-gerai-cari">Cari data gerai atau kelurahan</label>
+                  <span class="ik medan-ikon" aria-hidden="true">search</span><input class="input" id="db-gerai-cari" type="search" placeholder="Cari data gerai / kelurahan..."></div>
+                <button class="btn btn-sekunder" id="btn-ekspor" type="button"><span class="ik" aria-hidden="true">download</span><span>Ekspor Rekapitulasi (Excel)</span></button>
+              </div>
+              <div class="tabel-wadah" tabindex="0" role="region" aria-label="Tabel pembangunan fisik gerai">
+                <table class="tabel">
+                  <thead><tr><th scope="col" class="tc">No</th><th scope="col">Nama Koperasi</th><th scope="col" class="tc">Luas Lahan</th><th scope="col" class="tc">Luas Bangunan</th><th scope="col">Alamat</th><th scope="col">Koordinat</th><th scope="col" class="tc">Foto</th><th scope="col">Progres Fisik</th><th scope="col" class="tc">Sarpras</th><th scope="col" class="tc">Verval</th></tr></thead>
+                  <tbody id="db-gerai-body"><tr><td colspan="10" class="sel-memuat">Memuat data...</td></tr></tbody>
+                </table>
+              </div>
+              <div class="tabel-kaki"><span></span><nav class="pag" id="db-gerai-pag" aria-label="Halaman data gerai"></nav></div>
+            </div>
+          </article>
+
+          <a class="banner-vrv banner-vrv-publik" href="?hal=verval" data-masuk="verval-rekap" aria-describedby="banner-vrv-desk banner-vrv-akses">
+            <span class="banner-vrv-ikon" aria-hidden="true"><svg class="ik-clip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span>
+            <span class="banner-vrv-teks">
+              <span class="banner-vrv-judul">Hasil Pelaksanaan Verifikasi dan Validasi (Verval)</span>
+              <span class="banner-vrv-desk" id="banner-vrv-desk">Lihat rekap hasil pemeriksaan, temuan, dokumentasi, dan rekomendasi tindak lanjut Verval KKMP Kota Ternate.</span><span class="sr" id="banner-vrv-akses">Memerlukan login sebagai Admin, Petugas Verval, atau Akses Monitoring.</span>
+            </span>
+            <span class="banner-vrv-tombol"><span>Lihat Hasil Verval</span><svg class="ik-panah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M7 7h10v10"/><path vector-effect="non-scaling-stroke" d="M7 17 17 7"/></svg></span>
+          </a>
+        </section>
+      </div>
+    </div>
+    <!-- ===== AKHIR BLOK: M2_DASHBOARD ===== -->
+
+
+    <!-- ===== BLOK: M3_PUSTAKA ===== -->
+    <div class="halaman" id="pg-pustaka" data-hal="pustaka" hidden>
+      <div class="wadah hal-wadah">
+        <header class="judul-hal">
+          <div>
+            <span class="eyebrow">Pustaka Digital</span>
+            <h1 class="h-hal">Dasar Hukum &amp; Referensi</h1>
+            <p class="lead">Regulasi, petunjuk teknis, dan laporan resmi pelaksanaan Program Koperasi Kelurahan Merah Putih Kota Ternate.</p>
+          </div>
+          <span class="lencana ln-info"><span class="ik" aria-hidden="true">folder_open</span><span id="pus-jumlah">0 Berkas Tersedia</span></span>
+        </header>
+        <div class="kartu toolbar-kartu">
+          <div class="medan medan-cari medan-lebar"><label class="sr" for="pus-cari">Cari dokumen</label>
+            <span class="ik medan-ikon" aria-hidden="true">search</span><input class="input" id="pus-cari" type="search" placeholder="Cari judul atau keterangan dokumen..."></div>
+          <div class="medan medan-kecil"><label class="label-mini" for="pus-urut">Urutkan</label>
+            <select class="input" id="pus-urut"><option value="baru">Terbaru</option><option value="lama">Terlama</option><option value="az">Judul A–Z</option><option value="za">Judul Z–A</option></select></div>
+          <div class="medan medan-mini"><label class="label-mini" for="pus-per">Tampil</label>
+            <select class="input" id="pus-per"><option value="9">9</option><option value="18">18</option><option value="36">36</option></select></div>
+          <div class="chip-baris" id="pus-kat" role="group" aria-label="Kategori dokumen"></div>
+        </div>
+        <div class="pus-grid" id="pus-grid" aria-live="polite">
+          <div class="kartu skel skel-dok"></div><div class="kartu skel skel-dok"></div><div class="kartu skel skel-dok"></div>
+        </div>
+        <div class="tabel-kaki"><span class="teks-kecil teks-redup" id="pus-info"></span><nav class="pag" id="pus-pag" aria-label="Halaman pustaka"></nav></div>
+        <div class="bento bento-info">
+          <div class="kartu info-kartu k-4"><span class="stat-ikon si-merah" aria-hidden="true"><span class="ik">policy</span></span><div><h2 class="h-kecil">Legalitas Terverifikasi</h2><p class="teks-redup">Dokumen resmi telah diverifikasi dan layak dipublikasikan.</p></div></div>
+          <div class="kartu info-kartu k-4"><span class="stat-ikon si-teal" aria-hidden="true"><span class="ik">history_edu</span></span><div><h2 class="h-kecil">Arsip Publik Terbuka</h2><p class="teks-redup">Akses bebas untuk mendukung tata kelola koperasi yang transparan.</p></div></div>
+          <a class="kartu info-kartu kartu-angkat k-4" href="#" data-go="kontak"><span class="stat-ikon si-biru" aria-hidden="true"><span class="ik">support_agent</span></span><div><h2 class="h-kecil">Butuh Bantuan Regulasi?</h2><p class="teks-redup">Hubungi Tim PMO untuk konsultasi teknis KKMP.</p></div></a>
+        </div>
+      </div>
+    </div>
+    <!-- ===== AKHIR BLOK: M3_PUSTAKA ===== -->
+
+
+    <!-- ===== BLOK: M4_BERITA ===== -->
+    <div class="halaman" id="pg-berita" data-hal="berita" hidden>
+      <div class="wadah hal-wadah">
+        <header class="judul-hal">
+          <div>
+            <span class="eyebrow">Warta KKMP</span>
+            <h1 class="h-hal">Berita &amp; Informasi Terkini</h1>
+            <p class="lead">Kabar terbaru, liputan kegiatan lapangan, dan perkembangan program Koperasi Kelurahan Merah Putih di Kota Ternate.</p>
+          </div>
+        </header>
+        <div class="kartu toolbar-kartu">
+          <div class="chip-baris" id="brt-chips" role="group" aria-label="Kategori berita"></div>
+          <div class="medan medan-cari"><label class="sr" for="brt-cari">Cari berita</label>
+            <span class="ik medan-ikon" aria-hidden="true">search</span><input class="input" id="brt-cari" type="search" placeholder="Cari warta KKMP..."></div>
+        </div>
+        <div class="brt-grid" id="brt-grid" aria-live="polite">
+          <div class="kartu skel skel-besar brt-skel-utama"></div><div class="kartu skel skel-dok"></div><div class="kartu skel skel-dok"></div>
+        </div>
+        <div class="tabel-kaki"><span class="teks-kecil teks-redup" id="brt-info"></span><nav class="pag" id="brt-pag" aria-label="Halaman berita"></nav></div>
+      </div>
+    </div>
+
+    <div class="halaman" id="pg-detail" data-hal="detail" hidden>
+      <div class="progres-baca" aria-hidden="true"><span id="dt-progres"></span></div>
+      <div class="wadah hal-wadah">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="#" data-go="beranda"><span class="ik ik-16" aria-hidden="true">home</span>Beranda</a></li>
+            <li><a href="#" data-go="berita">Berita</a></li>
+            <li aria-current="page">Detail Berita</li>
+          </ol>
+        </nav>
+        <div class="dt-grid">
+          <article class="dt-artikel">
+            <header class="dt-head">
+              <span class="lencana ln-merah" id="dt-kategori">-</span>
+              <h1 class="h-hal dt-judul" id="dt-judul">Memuat berita...</h1>
+              <div class="dt-meta">
+                <span class="dt-meta-item"><span class="ik ik-18" aria-hidden="true">person</span><span id="dt-penulis">-</span></span>
+                <span class="dt-meta-item"><span class="ik ik-18" aria-hidden="true">calendar_today</span><span id="dt-tanggal">-</span></span>
+                <span class="dt-bagikan">
+                  <button class="btn btn-ikon btn-hantu" id="dt-share" type="button" aria-label="Bagikan berita"><span class="ik" aria-hidden="true">share</span></button>
+                  <button class="btn btn-ikon btn-hantu" id="dt-copy" type="button" aria-label="Salin tautan berita"><span class="ik" aria-hidden="true">link</span></button>
+                  <button class="btn btn-ikon btn-hantu" id="dt-print" type="button" aria-label="Cetak berita"><span class="ik" aria-hidden="true">print</span></button>
+                </span>
+              </div>
+            </header>
+            <figure class="dt-gambar">
+              <img id="dt-gambar" alt="">
+              <figcaption id="dt-caption-wrap"><span class="ik ik-18" aria-hidden="true">photo_camera</span><span id="dt-caption"></span></figcaption>
+            </figure>
+            <div class="dt-isi" id="dt-isi"></div>
+            <div class="dt-tagar" id="dt-tagar-wrap"><span class="label-mini">Tagar terkait</span><span class="chip-baris" id="dt-tagar"></span></div>
+            <div class="kartu dt-umpan">
+              <div class="dt-umpan-kiri"><span class="stat-ikon si-merah" aria-hidden="true"><span class="ik">thumb_up</span></span>
+                <div><h2 class="h-kecil">Apakah artikel ini bermanfaat?</h2><p class="teks-redup">Bantu kami meningkatkan kualitas publikasi KKMP Kota Ternate.</p></div></div>
+              <div class="baris-tombol">
+                <button class="btn btn-sekunder" id="dt-manfaat" type="button"><span class="ik" aria-hidden="true">thumb_up</span><span id="dt-manfaat-teks">Bermanfaat</span></button>
+                <a class="btn btn-hantu" href="#" data-go="kontak"><span class="ik" aria-hidden="true">chat_bubble</span><span>Umpan Balik</span></a>
+              </div>
+            </div>
+          </article>
+          <aside class="dt-samping" aria-label="Informasi tambahan">
+            <div class="kartu">
+              <h2 class="h-kartu">Berita Lainnya</h2>
+              <div class="dt-lainnya" id="dt-lainnya"></div>
+              <a class="btn btn-utama btn-blok" href="#" data-go="berita"><span>Lihat Semua Berita</span><svg class="ik-panah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M7 7h10v10"/><path vector-effect="non-scaling-stroke" d="M7 17 17 7"/></svg></a>
+            </div>
+            <div class="kartu kartu-lembut">
+              <h2 class="h-kecil"><span class="ik" aria-hidden="true">contact_support</span>Layanan Pengaduan</h2>
+              <p class="teks-redup">Pertanyaan terkait pendampingan koperasi di kelurahan Anda? Hubungi desk koordinasi PMO.</p>
+              <ul class="daftar-kontak">
+                <li><span class="ik" aria-hidden="true">call</span><span data-cfg="contact_helpdesk_phone">-</span></li>
+                <li><span class="ik" aria-hidden="true">mail</span><span data-cfg="contact_official_email">-</span></li>
+              </ul>
+              <a class="tautan-panah" href="#" data-go="kontak">Buka formulir pengaduan<svg class="ik-panah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M7 7h10v10"/><path vector-effect="non-scaling-stroke" d="M7 17 17 7"/></svg></a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <!-- ===== AKHIR BLOK: M4_BERITA ===== -->
+
+
+    <!-- ===== BLOK: M5_KONTAK ===== -->
+    <div class="halaman" id="pg-kontak" data-hal="kontak" hidden>
+      <div class="wadah hal-wadah">
+        <header class="judul-hal">
+          <div>
+            <span class="eyebrow">Kontak Kami</span>
+            <h1 class="h-hal">Layanan &amp; Pengaduan KKMP</h1>
+            <p class="lead">Sampaikan saran, masukan, atau pertanyaan terkait pelaksanaan program KKMP Kota Ternate. Tim PMO siap melayani Anda.</p>
+          </div>
+        </header>
+        <div class="bento kt-bento">
+          <div class="k-5 tumpuk">
+            <div class="kartu">
+              <div class="kartu-head-ringkas"><span class="stat-ikon si-merah" aria-hidden="true"><span class="ik">apartment</span></span>
+                <div><h2 class="h-kartu" data-cfg="office_name">-</h2><p class="teks-redup">Sekretariat Koordinasi KKMP Kota Ternate</p></div></div>
+              <p class="kt-alamat" data-cfg="office_address">-</p>
+              <div class="baris-tombol">
+                <a class="btn btn-utama" id="kt-maps" href="#" target="_blank" rel="noopener noreferrer"><span class="ik" aria-hidden="true">map</span><span>Buka di Maps</span></a>
+                <button class="btn btn-sekunder" id="kt-salin" type="button"><span class="ik" aria-hidden="true">content_copy</span><span>Salin Alamat</span></button>
+              </div>
+            </div>
+            <div class="kartu">
+              <div class="kartu-head-ringkas"><span class="stat-ikon si-teal" aria-hidden="true"><span class="ik">schedule</span></span><h2 class="h-kecil">Jam Layanan Publik</h2></div>
+              <p class="teks-redup"><span data-cfg="jam_layanan_hari_kerja">-</span><br><span data-cfg="jam_layanan_libur">-</span></p>
+            </div>
+            <div class="kartu">
+              <div class="kartu-head-ringkas"><span class="stat-ikon si-biru" aria-hidden="true"><span class="ik">support_agent</span></span><h2 class="h-kecil">Pusat Bantuan Cepat</h2></div>
+              <ul class="daftar-kontak">
+                <li><span class="ik" aria-hidden="true">call</span><a class="tautan" id="kt-tel" href="#"><span data-cfg="contact_helpdesk_phone">-</span></a></li>
+                <li><span class="ik" aria-hidden="true">mail</span><a class="tautan" id="kt-mail" href="#"><span data-cfg="contact_official_email">-</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="k-7 kartu kartu-peta">
+            <div class="kt-peta" id="kt-peta" role="region" aria-label="Peta lokasi kantor sekretariat"></div>
+          </div>
+        </div>
+        <section class="kartu kt-form-kartu" aria-labelledby="kt-form-h2">
+          <div class="kartu-head"><div><span class="eyebrow">Formulir Resmi</span><h2 class="h-sec" id="kt-form-h2">Kirim Pesan</h2><p class="teks-redup">Kolom bertanda <abbr title="wajib diisi">*</abbr> wajib diisi.</p></div></div>
+          <form class="form-grid" id="form-kontak" novalidate>
+            <div class="medan"><label class="label" for="kt-nama">Nama lengkap <abbr title="wajib">*</abbr></label>
+              <input class="input" id="kt-nama" name="NamaLengkap" type="text" autocomplete="name" maxlength="100" required></div>
+            <div class="medan"><label class="label" for="kt-email">Alamat e-mail <abbr title="wajib">*</abbr></label>
+              <input class="input" id="kt-email" name="Email" type="email" autocomplete="email" required aria-describedby="kt-email-bantu"><span class="bantuan" id="kt-email-bantu">Balasan dikirim ke alamat ini.</span></div>
+            <div class="medan"><label class="label" for="kt-telp">Nomor telepon / WhatsApp</label>
+              <input class="input" id="kt-telp" name="Telepon" type="tel" autocomplete="tel" maxlength="20"></div>
+            <div class="medan"><label class="label" for="kt-subjek">Subjek / judul pesan <abbr title="wajib">*</abbr></label>
+              <input class="input" id="kt-subjek" name="Subjek" type="text" maxlength="150" required></div>
+            <div class="medan medan-penuh"><label class="label" for="kt-isi">Isi pesan <abbr title="wajib">*</abbr></label>
+              <textarea class="input" id="kt-isi" name="IsiPesan" rows="5" maxlength="5000" required></textarea></div>
+            <div class="medan medan-penuh kt-captcha">
+              <label class="label" for="kt-captcha">Kode verifikasi <abbr title="wajib">*</abbr></label>
+              <div class="captcha-baris">
+                <div class="captcha-gambar" id="kt-captcha-wadah" aria-busy="true">
+                  <img id="kt-captcha-img" width="200" height="64" alt="Gambar kode verifikasi berisi 5 karakter. Jika sulit dibaca, pilih tombol Ganti kode atau hubungi kami melalui telepon/e-mail di atas.">
+                </div>
+                <button class="btn btn-ikon btn-sekunder" id="kt-captcha-baru" type="button" aria-label="Ganti kode verifikasi" title="Ganti kode"><span class="ik" aria-hidden="true">refresh</span></button>
+                <input class="input captcha-input" id="kt-captcha" name="captcha" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="5" required aria-describedby="kt-captcha-bantu kt-captcha-galat" placeholder="•••••">
+              </div>
+              <span class="bantuan" id="kt-captcha-bantu">Ketik 5 karakter pada gambar (huruf besar/kecil tidak dibedakan). Kode berlaku 5 menit.</span>
+              <span class="captcha-galat" id="kt-captcha-galat" role="alert" hidden></span>
+            </div>
+            <div class="medan-penuh baris-tombol">
+              <button class="btn btn-utama btn-besar" id="btn-kirim" type="submit"><span class="ik" aria-hidden="true">send</span><span>Kirim Pesan</span></button>
+              <p class="lencana ln-sukses" id="kt-feedback" role="status" hidden><span class="ik" aria-hidden="true">check_circle</span>Pesan Anda telah berhasil disampaikan ke Pengelola KKMP.</p>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+    <!-- ===== AKHIR BLOK: M5_KONTAK ===== -->
+
+
+    <!-- ===== BLOK: MAINTENANCE ===== -->
+    <div class="halaman" id="pg-maint" data-hal="maint" hidden>
+      <div class="wadah hal-wadah">
+        <div class="kartu maint-kartu">
+          <span class="stat-ikon si-merah stat-ikon-besar" aria-hidden="true"><span class="ik">construction</span></span>
+          <h1 class="h-hal">Portal Sedang Dalam Pemeliharaan</h1>
+          <p class="lead">Kami sedang melakukan pembaruan sistem portal KKMP Kota Ternate. Silakan kembali beberapa saat lagi.</p>
+          <p class="teks-redup">Informasi: <span data-cfg="contact_official_email">-</span></p>
+        </div>
+      </div>
+    </div>
+    <!-- ===== AKHIR BLOK: MAINTENANCE ===== -->
+  </main>
+
+  <!-- ===== BLOK: FOOTER_PUBLIK ===== -->
+  <footer class="kaki">
+    <div class="wadah kaki-grid">
+      <div class="kaki-merek">
+        <div class="merek"><img class="merek-logo" src="img/logo.png" alt="Logo KKMP"><span class="merek-teks"><span class="merek-judul">KOPKEL <b>MERAH PUTIH</b></span><span class="merek-sub" data-cfg="app_tagline">Kota Ternate</span></span></div>
+        <p class="kaki-slogan">Bangun Ekonomi Desa, Kokohkan Ekonomi Bangsa.</p>
+        <p class="teks-redup">Akselerasi penguatan ekonomi kerakyatan melalui digitalisasi tata kelola Koperasi Kelurahan Merah Putih yang transparan, profesional, dan berkeadilan.</p>
+      </div>
+      <nav class="kaki-kol" aria-label="Navigasi footer">
+        <h2 class="kaki-judul">Navigasi</h2>
+        <ul>
+          <li><a href="#" data-go="dashboard">Dashboard</a></li>
+          <li><a href="#" data-go="pustaka">Pustaka</a></li>
+          <li><a href="#" data-go="berita">Berita</a></li>
+          <li><a href="#" data-go="kontak">Kontak Kami</a></li>
+        </ul>
+      </nav>
+      <div class="kaki-kol">
+        <h2 class="kaki-judul">Penyelenggara</h2>
+        <ul>
+          <li>Program Koperasi Desa/Kelurahan Merah Putih (KDKMP)</li>
+          <li>Kementerian Koperasi Republik Indonesia</li>
+          <li>Dinas Koperasi dan UKM Kota Ternate, Maluku Utara</li>
+        </ul>
+      </div>
+      <div class="kaki-kol">
+        <h2 class="kaki-judul">Informasi &amp; Pengaduan</h2>
+        <div class="kaki-sosial">
+          <a class="btn btn-ikon btn-sekunder" id="ft-ig" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram resmi KKMP Kota Ternate (tab baru)"><svg class="ik-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.25" fill="currentColor"/></svg></a>
+          <a class="btn btn-ikon btn-sekunder" id="ft-yt" href="#" target="_blank" rel="noopener" aria-label="Kanal YouTube KDKMP"><span class="ik" aria-hidden="true">smart_display</span></a>
+          <a class="btn btn-ikon btn-sekunder" id="ft-mail" href="#" aria-label="Kirim e-mail pengaduan"><span class="ik" aria-hidden="true">mail</span></a>
+          <a class="btn btn-ikon btn-sekunder" id="ft-tel" href="#" aria-label="Telepon layanan pengaduan"><span class="ik" aria-hidden="true">call</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="wadah kaki-bawah"><p>© <span class="tahun-ini">2026</span> PMO Kota Ternate. Seluruh hak dilindungi.</p></div>
+  </footer>
+  <!-- ===== AKHIR BLOK: FOOTER_PUBLIK ===== -->
+
+  <nav class="tab-bawah" aria-label="Navigasi seluler">
+    <a class="tab-bawah-link" href="#" data-go="beranda"><span class="ik" aria-hidden="true">home</span><span>Beranda</span></a>
+    <a class="tab-bawah-link" href="#" data-go="dashboard"><span class="ik" aria-hidden="true">monitoring</span><span>Dashboard</span></a>
+    <a class="tab-bawah-link" href="#" data-go="pustaka"><span class="ik" aria-hidden="true">menu_book</span><span>Pustaka</span></a>
+    <a class="tab-bawah-link" href="#" data-go="berita"><span class="ik" aria-hidden="true">newspaper</span><span>Berita</span></a>
+    <a class="tab-bawah-link" href="#" data-go="kontak"><span class="ik" aria-hidden="true">support_agent</span><span>Kontak</span></a>
+  </nav>
+</div>
+<!-- ===== AKHIR BLOK: PORTAL_PUBLIK ===== -->
+
+
+<!-- ===================================================================== -->
+<!-- ===== BLOK: LOGIN ===== -->
+<div id="app-login" class="login" hidden>
+  <div class="login-kiri">
+    <div class="login-bg" id="login-bg" aria-hidden="true"></div>
+    <div class="login-kiri-isi">
+      <div class="merek merek-terang"><img class="merek-logo merek-logo-besar" src="img/logo.png" alt="Logo resmi KKMP Kota Ternate"><span class="merek-teks"><span class="merek-judul">KOPKEL <b>MERAH PUTIH</b></span><span class="merek-sub">Pemerintah Kota Ternate · Diskop UKM</span></span></div>
+      <div>
+        <h1 class="h-hero login-judul">Panel Administrasi <span class="teks-putih-redup">Portal Monitoring KKMP</span></h1>
+        <ul class="login-poin">
+          <li><span class="ik" aria-hidden="true">check_circle</span>Data koperasi terpusat</li>
+          <li><span class="ik" aria-hidden="true">check_circle</span>Pantau RAT dan pembangunan gerai</li>
+          <li><span class="ik" aria-hidden="true">check_circle</span>Konten portal terkelola</li>
+        </ul>
+      </div>
+      <p class="login-catatan"><span class="ik ik-16" aria-hidden="true">verified_user</span><span class="login-catatan-teks">Sistem Pengawasan Internal Terintegrasi PMO Kota Ternate <span class="nowrap">© <span class="tahun-ini">2026</span></span></span></p>
+    </div>
+  </div>
+  <main class="login-kanan" aria-labelledby="login-h2">
+    <div class="login-atas">
+      <a class="tautan-panah tautan-kembali" href="#" data-go="beranda"><svg class="ik-lucide ik-panel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg><span>Kembali ke Beranda</span></a>
+      <button class="btn btn-ikon btn-hantu btn-tema" type="button" data-tema-toggle title="Ganti mode tampilan"><span class="ik ik-gelap" aria-hidden="true">light_mode</span><span class="ik ik-terang" aria-hidden="true">dark_mode</span><span class="sr">Ganti mode terang atau gelap</span></button>
+    </div>
+    <div class="login-form-wrap">
+      <span class="eyebrow">Akses Pengelola</span>
+      <h2 class="h-hal" id="login-h2">Masuk ke Sistem</h2>
+      <p class="teks-redup">Masukkan kredensial akun administrator PMO Kota Ternate.</p>
+      <p class="login-tujuan" id="login-tujuan" hidden><svg class="ik-lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span id="login-tujuan-teks"><b>Hasil Verval bersifat terbatas.</b> Masuk sebagai Admin, Petugas Verval, atau Akses Monitoring untuk melihat hasil pemeriksaan.</span></p>
+      <form class="tumpuk" id="form-login" novalidate>
+        <div class="medan"><label class="label" for="login-user">Username</label>
+          <span class="ik medan-ikon" aria-hidden="true">person</span><input class="input" id="login-user" type="text" autocomplete="username" required></div>
+        <div class="medan"><label class="label" for="login-pass">Password</label>
+          <span class="ik medan-ikon" aria-hidden="true">lock</span><input class="input input-mata" id="login-pass" type="password" autocomplete="current-password" required>
+          <button class="btn-mata" id="login-mata" type="button" aria-label="Tampilkan kata sandi" aria-pressed="false"><span class="ik" id="login-mata-ikon" aria-hidden="true">visibility</span></button></div>
+        <div class="pesan-galat" id="login-pesan" role="alert" hidden></div>
+        <button class="btn btn-utama btn-besar btn-blok btn-masuk" id="btn-login" type="submit"><span>Masuk</span><svg class="ik-lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/></svg></button>
+      </form>
+      <p class="login-kaki"><span class="ik ik-16" aria-hidden="true">lock</span>Koneksi terenkripsi (HTTPS)</p>
+    </div>
+  </main>
+</div>
+<!-- ===== AKHIR BLOK: LOGIN ===== -->
+
+
+<!-- ===================================================================== -->
+<!-- ===== BLOK: LAYOUT_ADMIN ===== -->
+<div id="app-admin" class="admin" hidden>
+  <header class="ad-header">
+    <div class="ad-header-kiri">
+      <button class="btn btn-ikon btn-hantu ad-toggle" id="ad-toggle" type="button" aria-label="Buka menu navigasi" aria-controls="ad-sidebar" aria-expanded="false"><span class="ik" aria-hidden="true">menu</span></button>
+      <div class="merek"><img class="merek-logo" src="img/logo.png" alt="Logo KKMP"><span class="merek-teks"><span class="merek-judul">KKMP <b>KOTA TERNATE</b></span><span class="merek-sub">Panel Admin</span></span></div>
+    </div>
+    <div class="ad-header-kanan">
+      <button class="btn btn-ikon btn-hantu asisten-header" type="button" data-asisten aria-haspopup="dialog" aria-controls="asisten" title="Asisten Data KKMP"><span class="ik" aria-hidden="true">auto_awesome</span><span class="sr">Buka Asisten Data KKMP</span></button>
+      <button class="btn btn-ikon btn-hantu btn-tema" type="button" data-tema-toggle title="Ganti mode tampilan"><span class="ik ik-gelap" aria-hidden="true">light_mode</span><span class="ik ik-terang" aria-hidden="true">dark_mode</span><span class="sr">Ganti mode terang atau gelap</span></button>
+      <div class="ad-user"><span class="ad-user-teks"><b id="ad-nama">-</b><span id="ad-role">Pengelola Sektor</span></span><span class="avatar" aria-hidden="true"><span class="ik">person</span></span></div>
+    </div>
+  </header>
+
+  <aside class="ad-sidebar" id="ad-sidebar" aria-label="Menu admin">
+    <nav class="ad-nav" id="ad-nav">
+      <span class="ad-menu-label" data-akses="grup">Menu Utama</span>
+      <a class="ad-nav-link" href="#" data-ad="ringkasan"><span class="ik" aria-hidden="true">space_dashboard</span><span>Ringkasan Admin</span></a>
+      <a class="ad-nav-link" href="#" data-ad="koperasi"><span class="ik" aria-hidden="true">store</span><span>Data Koperasi</span></a>
+      <a class="ad-nav-link" href="#" data-ad="rat"><span class="ik" aria-hidden="true">groups</span><span>Data RAT</span></a>
+      <a class="ad-nav-link" href="#" data-ad="gerai"><span class="ik" aria-hidden="true">apartment</span><span>Data Gedung Gerai</span></a>
+      <span class="ad-menu-label ad-menu-ungu">Hasil Verval <span class="ik ik-16" aria-hidden="true">lock</span><span class="sr">(privat)</span></span>
+      <a class="ad-nav-link" href="#" data-ad="verval-input"><span class="ik" aria-hidden="true">add_task</span><span>Input Hasil Verval</span></a>
+      <a class="ad-nav-link" href="#" data-ad="verval-rekap"><span class="ik" aria-hidden="true">analytics</span><span>Rekapitulasi Hasil Verval</span></a>
+      <a class="ad-nav-link" href="#" data-ad="verval-daftar"><span class="ik" aria-hidden="true">fact_check</span><span>Daftar Hasil Verval</span></a>
+      <span class="ad-menu-label" data-akses="grup">Konten</span>
+      <a class="ad-nav-link" href="#" data-ad="berita"><span class="ik" aria-hidden="true">newspaper</span><span>Kelola Berita</span></a>
+      <a class="ad-nav-link" href="#" data-ad="pustaka"><span class="ik" aria-hidden="true">folder</span><span>Kelola Pustaka</span></a>
+      <a class="ad-nav-link" href="#" data-ad="konten"><span class="ik" aria-hidden="true">tune</span><span>Konten &amp; Pengaturan</span></a>
+      <a class="ad-nav-link" href="#" data-ad="pesan"><span class="ik" aria-hidden="true">mail</span><span>Pesan Masuk</span></a>
+      <span class="ad-menu-label" data-akses="grup">Keamanan</span>
+      <a class="ad-nav-link" href="#" data-ad="pengguna"><span class="ik" aria-hidden="true">manage_accounts</span><span>Kelola Pengguna</span></a>
+    </nav>
+    <div class="ad-sidebar-bawah">
+      <a class="ad-nav-link" href="#" data-go="beranda"><span class="ik" aria-hidden="true">public</span><span>Lihat Portal Publik</span></a>
+      <a class="ad-nav-link ad-logout" href="#" id="btn-logout"><span class="ik" aria-hidden="true">logout</span><span>Keluar</span></a>
+    </div>
+  </aside>
+  <div class="ad-backdrop" id="ad-backdrop" hidden></div>
+
+  <main class="ad-main" id="ad-main" tabindex="-1">
+<!-- ===== AKHIR BLOK: LAYOUT_ADMIN ===== -->
+
+    <!-- ===== BLOK: M6_RINGKASAN_ADMIN ===== -->
+    <section class="ad-hal" id="ad-ringkasan" data-adhal="ringkasan" aria-labelledby="h-rk">
+      <header class="judul-hal">
+        <div><span class="eyebrow">Ringkasan Eksekutif</span><h1 class="h-hal" id="h-rk">Monitoring Admin KKMP</h1><p class="lead">Rekapitulasi tata kelola Koperasi Kelurahan Merah Putih se-Kota Ternate.</p></div>
+        <button class="btn btn-sekunder" id="rk-muat" type="button"><span class="ik" aria-hidden="true">sync</span><span>Muat Ulang Data</span></button>
+      </header>
+      <div class="bento">
+        <article class="kartu kartu-merah stat k-4">
+          <div class="stat-atas"><span class="stat-label">Total Koperasi</span><span class="stat-ikon si-putih" aria-hidden="true"><span class="ik">store</span></span></div>
+          <span class="angka-raksasa" id="rk-total" data-hitung>–</span><span class="total-sub" id="rk-kec">0 Kecamatan Terdata</span>
+        </article>
+        <article class="kartu stat k-2"><div class="stat-atas"><span class="stat-label">Sudah RAT</span><span class="stat-ikon si-teal" aria-hidden="true"><span class="ik">groups</span></span></div>
+          <span class="stat-angka" id="rk-sudah" data-hitung>–</span><span class="stat-sub" id="rk-sudah-pct">0% terlaksana</span></article>
+        <article class="kartu stat k-2"><div class="stat-atas"><span class="stat-label">Rata-rata Progres</span><span class="stat-ikon si-hijau" aria-hidden="true"><span class="ik">apartment</span></span></div>
+          <span class="stat-angka" id="rk-progres" data-hitung>–</span><span class="stat-sub">Pembangunan gerai</span></article>
+        <article class="kartu stat k-2"><div class="stat-atas"><span class="stat-label">Berita Terbit</span><span class="stat-ikon si-biru" aria-hidden="true"><span class="ik">feed</span></span></div>
+          <span class="stat-angka" id="rk-berita" data-hitung>–</span><span class="stat-sub">Publikasi resmi</span></article>
+        <article class="kartu stat k-2"><div class="stat-atas"><span class="stat-label">Pesan Baru</span><span class="stat-ikon si-merah" aria-hidden="true"><span class="ik">mark_email_unread</span></span></div>
+          <span class="stat-angka" id="rk-pesan" data-hitung>–</span><span class="stat-sub">Pengaduan &amp; kontak</span></article>
+
+        <article class="kartu k-5">
+          <div class="kartu-head"><div><h2 class="h-kartu">Status RAT</h2><p class="teks-redup" id="rk-total-kop">Total 0 Koperasi</p></div></div>
+          <div class="donat-baris">
+            <div class="donat">
+              <svg class="donat-svg" viewBox="0 0 120 120" role="img" aria-labelledby="dn-judul"><title id="dn-judul">Diagram status RAT</title>
+                <circle class="donat-jalur" cx="60" cy="60" r="46"/>
+                <circle class="donat-seg ds-sudah" id="dn-sudah" cx="60" cy="60" r="46"><title>Sudah RAT</title></circle>
+                <circle class="donat-seg ds-draft" id="dn-draft" cx="60" cy="60" r="46"><title>Sedang RAT / Draft</title></circle>
+                <circle class="donat-seg ds-belum" id="dn-belum" cx="60" cy="60" r="46"><title>Belum RAT</title></circle>
+              </svg>
+              <div class="donat-tengah"><span class="donat-angka" id="dn-angka">0</span><span class="donat-label">Sudah RAT</span></div>
+            </div>
+            <ul class="legenda">
+              <li><span class="leg-titik lt-teal" aria-hidden="true"></span><span>Sudah RAT</span><b id="lg-sudah">0</b></li>
+              <li><span class="leg-titik lt-kuning" aria-hidden="true"></span><span>Sedang / Draft</span><b id="lg-draft">0</b></li>
+              <li><span class="leg-titik lt-merah" aria-hidden="true"></span><span>Belum RAT</span><b id="lg-belum">0</b></li>
+            </ul>
+          </div>
+          <div class="kepatuhan"><span>Kepatuhan pelaksanaan RAT</span><b id="rk-kepatuhan">0% terpenuhi</b></div>
+        </article>
+        <article class="kartu k-7">
+          <div class="kartu-head"><div><h2 class="h-kartu">Progres Fisik per Kecamatan</h2><p class="teks-redup">Rata-rata progres pembangunan gerai KKMP.</p></div></div>
+          <div class="bar-daftar" id="rk-bar-list"></div>
+        </article>
+
+        <article class="kartu k-6">
+          <div class="kartu-head"><div><h2 class="h-kartu">Koperasi Belum RAT</h2><p class="teks-redup">Memerlukan pendampingan pelaksanaan RAT segera.</p></div><span class="lencana ln-bahaya" id="rk-belum-total">0 Koperasi</span></div>
+          <div class="daftar-item" id="rk-belum-list"></div>
+          <a class="tautan-panah" href="#" data-ad="rat" id="rk-belum-link">Lihat data RAT<svg class="ik-panah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M7 7h10v10"/><path vector-effect="non-scaling-stroke" d="M7 17 17 7"/></svg></a>
+        </article>
+        <article class="kartu k-6">
+          <div class="kartu-head"><div><h2 class="h-kartu">Progres Fisik di Bawah 50%</h2><p class="teks-redup">Gerai yang mengalami keterlambatan pembangunan.</p></div><span class="lencana ln-perhatian"><span class="ik" aria-hidden="true">priority_high</span>Atensi</span></div>
+          <div class="daftar-item" id="rk-rendah-list"></div>
+          <a class="tautan-panah" href="#" data-ad="gerai">Buka laporan progres fisik<svg class="ik-panah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M7 7h10v10"/><path vector-effect="non-scaling-stroke" d="M7 17 17 7"/></svg></a>
+        </article>
+        <article class="kartu k-6">
+          <div class="kartu-head"><div><h2 class="h-kartu">Verifikasi &amp; Validasi Lapangan</h2><p class="teks-redup">Berkas masuk dan menunggu inspeksi tim teknis.</p></div><span class="lencana ln-info">Status Verval</span></div>
+          <div class="daftar-item" id="rk-verval-list"></div>
+          <a class="tautan-panah" href="#" data-ad="gerai">Kelola agenda verifikasi<svg class="ik-panah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M7 7h10v10"/><path vector-effect="non-scaling-stroke" d="M7 17 17 7"/></svg></a>
+        </article>
+        <article class="kartu k-6">
+          <div class="kartu-head"><div><h2 class="h-kartu">Pesan &amp; Aspirasi Masuk</h2><p class="teks-redup">Dikirim melalui formulir kontak portal.</p></div><span class="lencana ln-merah" id="rk-pesan-chip">0 Pesan Baru</span></div>
+          <div class="daftar-item" id="rk-pesan-list"></div>
+          <a class="tautan-panah" href="#" data-ad="pesan">Buka seluruh pesan masuk<svg class="ik-panah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path vector-effect="non-scaling-stroke" d="M7 7h10v10"/><path vector-effect="non-scaling-stroke" d="M7 17 17 7"/></svg></a>
+        </article>
+      </div>
+    </section>
+    <!-- ===== AKHIR BLOK: M6_RINGKASAN_ADMIN ===== -->
+
+
+    <!-- ===== BLOK: M7_DATA_KOPERASI ===== -->
+    <section class="ad-hal" id="ad-koperasi" data-adhal="koperasi" aria-labelledby="h-kop" hidden>
+      <header class="judul-hal judul-hal-tumpuk">
+        <div><span class="eyebrow">Basis Data</span><h1 class="h-hal" id="h-kop">Data Koperasi Kelurahan</h1><p class="lead">Identitas, kependudukan, dan legalitas Koperasi Kelurahan Merah Putih se-Kota Ternate.</p></div>
+        <div class="judul-hal-aksi kop-aksi"><span class="lencana ln-info kop-terdaftar"><span class="ik" aria-hidden="true">verified</span><span id="kop-terdaftar">Terdaftar: 0 KKMP</span></span>
+          <button class="btn btn-sekunder" id="kop-impor" type="button"><svg class="ik-lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v12"/><path d="m17 8-5-5-5 5"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg><span>Import Data Excel</span></button>
+          <button class="btn btn-utama" id="kop-tambah" type="button"><span class="ik" aria-hidden="true">add</span><span>Tambah Koperasi</span></button></div>
+      </header>
+      <div class="bento">
+        <div class="kartu stat stat-ringkas k-2"><span class="stat-label">Total KKMP</span><span class="stat-angka" id="kop-total">0</span></div>
+        <div class="kartu stat stat-ringkas k-2"><span class="stat-label">Berbadan Hukum</span><span class="stat-angka" id="kop-bh">0</span></div>
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Memiliki NIB</span><span class="stat-angka" id="kop-nib">0</span></div>
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Memiliki NPWP</span><span class="stat-angka" id="kop-npwp">0</span></div>
+        <div class="kartu stat stat-ringkas k-2"><span class="stat-label">Memiliki Akun</span><span class="stat-angka" id="kop-akun">0</span></div>
+      </div>
+      <div class="kartu kartu-tabel">
+        <div class="toolbar">
+          <div class="medan medan-kecil"><label class="sr" for="kop-filter-kec">Filter kecamatan</label><select class="input" id="kop-filter-kec"><option value="">Semua Kecamatan</option></select></div>
+          <div class="medan medan-cari"><label class="sr" for="kop-cari">Cari KKMP atau kelurahan</label><span class="ik medan-ikon" aria-hidden="true">search</span><input class="input" id="kop-cari" type="search" placeholder="Cari KKMP, kelurahan, NIB, NIKOP, atau nomor SK..."></div>
+          <button class="btn btn-navy btn-ekspor-kop" id="kop-ekspor" type="button" data-ekspor-kop><svg class="ik-lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span>Ekspor Rekapitulasi (Excel)</span></button>
+        </div>
+        <div class="tabel-wadah" tabindex="0" role="region" aria-label="Tabel data koperasi">
+          <table class="tabel">
+            <thead><tr><th scope="col" class="tc">No</th><th scope="col">Kecamatan</th><th scope="col">Kelurahan</th><th scope="col">Nama KKMP</th><th scope="col" class="tc">Laki-Laki</th><th scope="col" class="tc">Perempuan</th><th scope="col" class="tc">Total</th><th scope="col">SK Badan Hukum (AHU)</th><th scope="col" class="tc">NIKOP</th><th scope="col" class="tc">NIB</th><th scope="col" class="tc">NPWP</th><th scope="col" class="tc">Akun</th><th scope="col" class="tc">Aksi</th></tr></thead>
+            <tbody id="kop-body"><tr><td colspan="13" class="sel-memuat">Memuat data...</td></tr></tbody>
+          </table>
+        </div>
+        <div class="tabel-kaki"><span class="teks-kecil teks-redup" id="kop-info"></span><nav class="pag" id="kop-pag" aria-label="Halaman data koperasi"></nav></div>
+      </div>
+    </section>
+    <!-- ===== AKHIR BLOK: M7_DATA_KOPERASI ===== -->
+
+
+    <!-- ===== BLOK: M8_DATA_RAT ===== -->
+    <section class="ad-hal" id="ad-rat" data-adhal="rat" aria-labelledby="h-rat" hidden>
+      <header class="judul-hal">
+        <div><span class="eyebrow">Rapat Anggota Tahunan</span><h1 class="h-hal" id="h-rat">Data Pelaksanaan RAT</h1><p class="lead">Akuntabilitas kepengurusan dan jadwal musyawarah koperasi.</p></div>
+        <div class="judul-hal-aksi"><span class="lencana ln-info" id="rat-terdaftar">0 Kelurahan Terdaftar</span>
+          <button class="btn btn-utama" id="rat-tambah" type="button"><span class="ik" aria-hidden="true">add</span><span>Tambah Data RAT</span></button></div>
+      </header>
+      <div class="kartu kartu-tabel">
+        <div class="toolbar">
+          <div class="medan medan-kecil"><label class="sr" for="rat-filter-tahun">Filter tahun buku</label><select class="input" id="rat-filter-tahun"><option value="">Semua Tahun Buku</option></select></div>
+          <div class="medan medan-kecil"><label class="sr" for="rat-filter-status">Filter status RAT</label><select class="input" id="rat-filter-status"><option value="">Semua Status</option><option value="Sudah">Sudah RAT</option><option value="Draft">Sedang RAT / Draft</option><option value="Belum">Belum RAT</option></select></div>
+          <div class="medan medan-cari"><label class="sr" for="rat-cari">Cari data RAT</label><span class="ik medan-ikon" aria-hidden="true">search</span><input class="input" id="rat-cari" type="search" placeholder="Cari data RAT..."></div>
+        </div>
+        <div class="tabel-wadah" tabindex="0" role="region" aria-label="Tabel data RAT">
+          <table class="tabel">
+            <thead><tr><th scope="col" class="tc">No</th><th scope="col">Koperasi</th><th scope="col" class="tc">Ke-</th><th scope="col" class="tc">Tahun Buku</th><th scope="col">Tanggal</th><th scope="col">Tempat</th><th scope="col" class="tc">Status</th><th scope="col" class="tc">Laporan</th><th scope="col" class="tc">Verifikasi Dinas</th><th scope="col" class="tc">Aksi</th></tr></thead>
+            <tbody id="rat-body"><tr><td colspan="10" class="sel-memuat">Memuat data...</td></tr></tbody>
+          </table>
+        </div>
+        <div class="tabel-kaki"><span class="teks-kecil teks-redup" id="rat-info"></span><nav class="pag" id="rat-pag" aria-label="Halaman data RAT"></nav></div>
+      </div>
+    </section>
+    <!-- ===== AKHIR BLOK: M8_DATA_RAT ===== -->
+
+
+    <!-- ===== BLOK: M9_DATA_GERAI ===== -->
+    <section class="ad-hal" id="ad-gerai" data-adhal="gerai" aria-labelledby="h-ger" hidden>
+      <header class="judul-hal">
+        <div><span class="eyebrow">Pembangunan Fisik</span><h1 class="h-hal" id="h-ger">Data Gedung &amp; Gerai</h1><p class="lead">Progres fisik, legalitas lahan, dan verifikasi lapangan gerai KKMP.</p></div>
+        <button class="btn btn-utama" id="ger-tambah" type="button"><span class="ik" aria-hidden="true">add</span><span>Tambah Data Gerai</span></button>
+      </header>
+      <div class="kartu kartu-tabel">
+        <div class="toolbar">
+          <div class="medan medan-cari"><label class="sr" for="ger-cari">Cari gedung gerai</label><span class="ik medan-ikon" aria-hidden="true">search</span><input class="input" id="ger-cari" type="search" placeholder="Cari gedung gerai..."></div>
+          <div class="medan medan-kecil"><label class="sr" for="ger-filter-lahan">Filter status lahan</label><select class="input" id="ger-filter-lahan"><option value="">Lahan: Semua</option><option value="Terverifikasi">Terverifikasi</option><option value="Belum Terverifikasi">Belum Terverifikasi</option></select></div>
+          <div class="medan medan-kecil"><label class="sr" for="ger-filter-verval">Filter status verval</label><select class="input" id="ger-filter-verval"><option value="">Verval: Semua</option><option value="Sudah">Sudah</option><option value="Dalam Proses">Dalam Proses</option><option value="Belum">Belum</option></select></div>
+        </div>
+        <div class="tabel-wadah" tabindex="0" role="region" aria-label="Tabel data gerai">
+          <table class="tabel">
+            <thead><tr><th scope="col" class="tc">No</th><th scope="col">Koperasi / Kelurahan</th><th scope="col" class="tc">Lahan</th><th scope="col" class="tc">Bangunan</th><th scope="col">Alamat</th><th scope="col">Progres Fisik</th><th scope="col" class="tc">Sarpras</th><th scope="col" class="tc">Verval</th><th scope="col" class="tc">SIMKOPDES</th><th scope="col" class="tc">Foto</th><th scope="col">Diperbarui</th><th scope="col" class="tc">Aksi</th></tr></thead>
+            <tbody id="ger-body"><tr><td colspan="12" class="sel-memuat">Memuat data...</td></tr></tbody>
+          </table>
+        </div>
+        <div class="tabel-kaki"><span class="teks-kecil teks-redup" id="ger-info"></span><nav class="pag" id="ger-pag" aria-label="Halaman data gerai"></nav></div>
+      </div>
+    </section>
+    <!-- ===== AKHIR BLOK: M9_DATA_GERAI ===== -->
+
+
+    <!-- ===== BLOK: M14_HASIL_VERVAL (PRIVAT) ===== -->
+    <section class="ad-hal" id="ad-verval-rekap" data-adhal="verval-rekap" aria-labelledby="h-vrk" hidden>
+      <header class="judul-hal">
+        <div><span class="eyebrow eyebrow-ungu"><span class="ik ik-16" aria-hidden="true">lock</span> Data Internal · Privat</span><h1 class="h-hal" id="h-vrk">Rekapitulasi Hasil Verval</h1><p class="lead">Capaian pemeriksaan setiap KKMP berdasarkan hasil verval final terakhir.</p></div>
+        <div class="baris-tombol">
+          <button class="btn btn-sekunder" id="vrk-muat" type="button"><span class="ik" aria-hidden="true">sync</span><span>Muat Ulang</span></button>
+          <button class="btn btn-utama" type="button" data-ad="verval-input"><span class="ik" aria-hidden="true">add_task</span><span>Input Hasil Verval</span></button>
+        </div>
+      </header>
+      <div class="kartu vrk-filter" role="group" aria-label="Filter rekapitulasi">
+        <div class="medan"><label class="label-mini" for="vrk-kec">Kecamatan</label><select class="input" id="vrk-kec"><option value="">Seluruh KKMP Kota Ternate</option></select></div>
+        <div class="medan"><label class="label-mini" for="vrk-kel">Kelurahan / Nama KKMP</label><select class="input" id="vrk-kel"><option value="">Semua Kelurahan</option></select></div>
+        <div class="medan"><label class="label-mini" for="vrk-periode">Periode Pemeriksaan</label><select class="input" id="vrk-periode"><option value="">Semua Periode</option></select></div>
+      </div>
+
+      <div class="vrk-ringkas" aria-label="Ringkasan hasil verval">
+        <article class="kartu vrk-r"><span class="vrk-r-label">KKMP Diverval</span><b class="vrk-r-angka" id="vrk-sudah">0</b><span class="vrk-r-sub" id="vrk-sudah-ket">dari 0 gerai selesai 100%</span></article>
+        <article class="kartu vrk-r vrk-r-layak"><span class="vrk-r-label"><span class="ik ik-18" aria-hidden="true">verified</span>Layak Digunakan</span><b class="vrk-r-angka" id="vrk-layak">0</b></article>
+        <article class="kartu vrk-r vrk-r-catatan"><span class="vrk-r-label"><span class="ik ik-18" aria-hidden="true">rule</span>Layak dengan Catatan</span><b class="vrk-r-angka" id="vrk-catatan">0</b></article>
+        <article class="kartu vrk-r vrk-r-belum"><span class="vrk-r-label"><span class="ik ik-18" aria-hidden="true">cancel</span>Belum Layak</span><b class="vrk-r-angka" id="vrk-belum">0</b></article>
+      </div>
+
+      <article class="kartu vrk-grafik">
+        <div class="kartu-head"><div><h2 class="h-kartu">Realisasi Capaian Pemeriksaan Dokumen</h2><p class="teks-redup teks-kecil">Dokumen administrasi, perencanaan teknis, dan pelaksanaan berstatus <b>Sudah diterima</b> dari 9 dokumen.</p></div></div>
+        <div class="grafik" id="g-dok"></div>
+      </article>
+      <article class="kartu vrk-grafik">
+        <div class="kartu-head"><div><h2 class="h-kartu">Realisasi Capaian Pemeriksaan Fisik Bangunan Gerai</h2><p class="teks-redup teks-kecil">Persentase item pemeriksaan berstatus <b>Sesuai</b>.</p></div><div class="g-legenda" id="g-fisik-legenda"></div></div>
+        <div class="grafik" id="g-fisik"></div>
+      </article>
+      <article class="kartu vrk-grafik">
+        <div class="kartu-head"><div><h2 class="h-kartu">Realisasi Capaian Pemeriksaan Kelengkapan Sarana dan Prasarana</h2><p class="teks-redup teks-kecil">Persentase jenis item yang realisasinya sudah memenuhi rencana.</p></div><div class="g-legenda" id="g-sarpras-legenda"></div></div>
+        <div class="grafik" id="g-sarpras"></div>
+      </article>
+      <article class="kartu vrk-grafik vrk-tl">
+        <div class="kartu-head"><div><h2 class="h-kartu" id="h-g-tl">Tindak Lanjut Temuan</h2><p class="teks-redup teks-kecil" id="vrk-t-ket">Temuan dari hasil berkesimpulan Layak dengan Catatan dan Belum Layak.</p></div></div>
+        <div class="tl-panel" id="tl-panel">
+          <div class="tl-donat"><div class="grafik" id="g-tl"></div></div>
+          <section class="tl-aspek" id="tl-aspek" aria-labelledby="h-g-aspek">
+            <h3 class="g-subjudul" id="h-g-aspek">Rincian Temuan Berdasarkan Aspek Pemeriksaan</h3>
+            <div class="grafik" id="g-aspek"></div>
+          </section>
+        </div>
+      </article>
+
+      <article class="kartu kartu-tabel">
+        <div class="kartu-head"><div><h2 class="h-kartu">Daftar KKMP Terverval</h2><p class="teks-redup">Pilih Lihat untuk membuka rincian hasil pemeriksaan.</p></div>
+          <div class="medan medan-kecil"><label class="sr" for="vrk-status">Filter kesimpulan</label><select class="input" id="vrk-status"><option value="">Semua Kesimpulan</option></select></div></div>
+        <div class="tabel-wadah" tabindex="0" role="region" aria-label="Daftar KKMP terverval">
+          <table class="tabel">
+            <thead><tr><th scope="col" class="tc">No</th><th scope="col">KKMP / Kelurahan</th><th scope="col">Kecamatan</th><th scope="col">Tanggal Pemeriksaan</th><th scope="col" class="tc">Kesimpulan</th><th scope="col" class="tc">Aksi</th></tr></thead>
+            <tbody id="vrk-body"><tr><td colspan="6" class="sel-memuat">Memuat data...</td></tr></tbody>
+          </table>
+        </div>
+        <div class="tabel-kaki"><span class="teks-kecil teks-redup" id="vrk-info"></span><nav class="pag" id="vrk-pag" aria-label="Halaman daftar KKMP terverval"></nav></div>
+      </article>
+    </section>
+
+    <section class="ad-hal" id="ad-verval-daftar" data-adhal="verval-daftar" aria-labelledby="h-vrd" hidden>
+      <header class="judul-hal">
+        <div><span class="eyebrow eyebrow-ungu"><span class="ik ik-16" aria-hidden="true">lock</span> Data Internal · Privat</span><h1 class="h-hal" id="h-vrd">Daftar Hasil Verval</h1><p class="lead">Seluruh catatan pemeriksaan, termasuk draft dan riwayat pemeriksaan sebelumnya.</p></div>
+        <button class="btn btn-utama" type="button" data-ad="verval-input"><span class="ik" aria-hidden="true">add_task</span><span>Input Hasil Verval</span></button>
+      </header>
+      <div class="kartu kartu-tabel">
+        <div class="toolbar">
+          <div class="medan medan-cari"><label class="sr" for="vrd-cari">Cari hasil verval</label><span class="ik medan-ikon" aria-hidden="true">search</span><input class="input" id="vrd-cari" type="search" placeholder="Cari KKMP, kelurahan, atau tim..."></div>
+          <div class="medan medan-kecil"><label class="sr" for="vrd-kec">Filter kecamatan</label><select class="input" id="vrd-kec"><option value="">Semua Kecamatan</option></select></div>
+          <div class="medan medan-kecil"><label class="sr" for="vrd-status">Filter kesimpulan</label><select class="input" id="vrd-status"><option value="">Semua Kesimpulan</option><option value="Layak Digunakan">Layak Digunakan</option><option value="Layak Digunakan dengan Catatan">Layak Digunakan dengan Catatan</option><option value="Belum Layak">Belum Layak</option></select></div>
+          <div class="medan medan-kecil"><label class="sr" for="vrd-data">Filter status data</label><select class="input" id="vrd-data"><option value="">Final &amp; Draft</option><option value="Final">Final</option><option value="Draft">Draft</option></select></div>
+        </div>
+        <div class="tabel-wadah" tabindex="0" role="region" aria-label="Tabel daftar hasil verval">
+          <table class="tabel">
+            <thead><tr><th scope="col" class="tc">No</th><th scope="col">KKMP / Kelurahan</th><th scope="col">Tanggal</th><th scope="col">Tim / Petugas</th><th scope="col">Periode</th><th scope="col" class="tc">Kesimpulan</th><th scope="col" class="tc">Status Data</th><th scope="col">Diperbarui</th><th scope="col" class="tc">Aksi</th></tr></thead>
+            <tbody id="vrd-body"><tr><td colspan="9" class="sel-memuat">Memuat data...</td></tr></tbody>
+          </table>
+        </div>
+        <div class="tabel-kaki"><span class="teks-kecil teks-redup" id="vrd-info"></span><nav class="pag" id="vrd-pag" aria-label="Halaman daftar hasil verval"></nav></div>
+      </div>
+    </section>
+
+    <section class="ad-hal" id="ad-verval-input" data-adhal="verval-input" aria-labelledby="h-vf" hidden>
+      <header class="judul-hal">
+        <div><span class="eyebrow eyebrow-ungu"><span class="ik ik-16" aria-hidden="true">lock</span> Data Internal · Privat</span><h1 class="h-hal h-hal-form" id="h-vf">Form Input Hasil Pelaksanaan Verifikasi dan Validasi (Verval)</h1><p class="lead" id="vf-mode">Pemeriksaan baru</p></div>
+      </header>
+      <form class="tumpuk vf-form" id="form-verval" novalidate>
+        <input type="hidden" id="vf-id">
+        <article class="kartu vf-bag">
+          <h2 class="vf-bag-judul"><span class="vf-huruf">A</span>Informasi Pemeriksaan</h2>
+          <div class="form-grid">
+            <div class="medan"><label class="label" for="vf-kop">Nama KKMP / Kelurahan <abbr title="wajib">*</abbr></label><select class="input" id="vf-kop" required aria-describedby="vf-kop-bantu"></select><span class="bantuan" id="vf-kop-bantu"></span></div>
+            <div class="medan"><label class="label" for="vf-kec">Kecamatan</label><input class="input" id="vf-kec" type="text" readonly tabindex="-1" aria-readonly="true" placeholder="Otomatis mengikuti KKMP"></div>
+            <div class="medan"><label class="label" for="vf-tgl">Tanggal Pemeriksaan <abbr title="wajib">*</abbr></label><input class="input" id="vf-tgl" type="date" required></div>
+            <div class="medan"><label class="label" for="vf-periode">Periode Pemeriksaan <abbr title="wajib">*</abbr></label><input class="input" id="vf-periode" type="text" maxlength="100" placeholder="Contoh: Tahap I 2026" required></div>
+            <div class="medan medan-penuh"><label class="label" for="vf-tim">Nama Tim / Petugas Pemeriksa <abbr title="wajib">*</abbr></label><input class="input" id="vf-tim" type="text" maxlength="200" placeholder="Contoh: Tim Verval PMO – Andi, Budi" required></div>
+          </div>
+        </article>
+        <article class="kartu vf-bag"><div class="vf-bag-head"><h2 class="vf-bag-judul"><span class="vf-huruf">B</span>Pemeriksaan Administrasi</h2><span class="lencana ln-netral" id="vf-sum-administrasi">0/9</span></div><div id="vf-administrasi"></div></article>
+        <article class="kartu vf-bag"><div class="vf-bag-head"><h2 class="vf-bag-judul"><span class="vf-huruf">C</span>Pemeriksaan Fisik Bangunan</h2><span class="lencana ln-netral" id="vf-sum-fisik">0/13</span></div><div id="vf-fisik"></div></article>
+        <article class="kartu vf-bag"><div class="vf-bag-head"><h2 class="vf-bag-judul"><span class="vf-huruf">D</span>Pemeriksaan Kelengkapan Sarana dan Prasarana</h2><span class="lencana ln-netral" id="vf-sum-sarpras">0/0</span></div><div id="vf-sarpras"></div></article>
+        <article class="kartu vf-bag"><div class="vf-bag-head"><h2 class="vf-bag-judul"><span class="vf-huruf">E</span>Dokumentasi Foto</h2><span class="lencana ln-netral" id="vf-sum-dokumentasi">0/9</span></div><div id="vf-dokumentasi"></div></article>
+        <article class="kartu vf-bag vf-kesimpulan" id="vf-kes-kartu">
+          <h2 class="vf-bag-judul"><span class="vf-huruf">F</span>Kesimpulan Hasil Verifikasi dan Validasi</h2>
+          <div class="form-grid">
+            <div class="medan medan-penuh"><label class="label" for="vf-kes">Status Hasil Verval <abbr title="wajib saat disimpan final">*</abbr></label>
+              <div class="vf-kes-baris"><select class="input" id="vf-kes"><option value="">Pilih kesimpulan akhir</option><option value="Layak Digunakan">Layak Digunakan</option><option value="Layak Digunakan dengan Catatan">Layak Digunakan dengan Catatan</option><option value="Belum Layak">Belum Layak</option></select><span id="vf-kes-badge" aria-live="polite"></span></div></div>
+            <div class="medan medan-penuh"><label class="label" for="vf-kes-catatan">Catatan Kesimpulan</label><textarea class="input" id="vf-kes-catatan" rows="3" maxlength="2000"></textarea></div>
+            <div class="medan medan-penuh"><label class="label" for="vf-rekom">Rekomendasi Tindak Lanjut</label><textarea class="input" id="vf-rekom" rows="3" maxlength="2000"></textarea></div>
+          </div>
+        </article>
+        <div class="vf-aksi">
+          <span class="vf-aksi-kiri"><button class="btn btn-sekunder" type="button" id="vf-kembali"><span class="ik" aria-hidden="true">arrow_back</span><span>Kembali</span></button>
+          <button class="btn btn-hantu" type="button" id="vf-lihat" hidden><span class="ik" aria-hidden="true">visibility</span><span>Lihat (View)</span></button></span>
+          <span class="vf-aksi-kanan">
+            <button class="btn btn-sekunder" type="button" id="vf-draft"><span class="ik" aria-hidden="true">draft</span><span>Simpan Draft</span></button>
+            <button class="btn btn-utama" type="submit" id="vf-final"><span class="ik" aria-hidden="true">task_alt</span><span>Simpan Hasil Verval</span></button>
+          </span>
+        </div>
+      </form>
+    </section>
+
+    <section class="ad-hal" id="ad-verval-detail" data-adhal="verval-detail" aria-labelledby="vd-judul" hidden>
+      <header class="judul-hal">
+        <div><span class="eyebrow eyebrow-ungu"><span class="ik ik-16" aria-hidden="true">lock</span> Hasil Verval · Mode Lihat · Privat</span><h1 class="h-hal h-hal-form" id="vd-judul">Form Hasil Pelaksanaan Verifikasi dan Validasi (Verval)</h1><p class="lead" id="vd-sub"></p></div>
+        <div class="baris-tombol">
+          <button class="btn btn-sekunder" type="button" id="vd-kembali"><span class="ik" aria-hidden="true">arrow_back</span><span>Kembali</span></button>
+          <button class="btn btn-utama" type="button" id="vd-ubah"><span class="ik" aria-hidden="true">edit</span><span>Ubah</span></button>
+        </div>
+      </header>
+      <div id="vd-isi" class="tumpuk"><div class="kartu skel skel-baris"></div></div>
+    </section>
+
+    <section class="ad-hal" id="ad-pengguna" data-adhal="pengguna" aria-labelledby="h-usr" hidden>
+      <header class="judul-hal">
+        <div><span class="eyebrow">Keamanan Akses</span><h1 class="h-hal" id="h-usr">Kelola Pengguna</h1><p class="lead">Berikan atau cabut hak akses. Perubahan peran dan status berlaku seketika pada sesi yang sedang berjalan.</p></div>
+        <button class="btn btn-utama" id="usr-tambah" type="button"><span class="ik" aria-hidden="true">person_add</span><span>Tambah Pengguna</span></button>
+      </header>
+      <div class="bento">
+        <article class="kartu k-4 kartu-lembut"><h2 class="h-kecil">Admin</h2><p class="teks-redup teks-kecil">Akses penuh seluruh panel, termasuk hapus hasil verval dan kelola pengguna.</p></article>
+        <article class="kartu k-4 kartu-lembut"><h2 class="h-kecil">Petugas Verval</h2><p class="teks-redup teks-kecil">Sebatas modul Hasil Verval: input, ubah, dan lihat. Tidak dapat menghapus.</p></article>
+        <article class="kartu k-4 kartu-lembut"><h2 class="h-kecil">Akses Monitoring</h2><p class="teks-redup teks-kecil">Hanya melihat rekap, daftar, dan mengunduh data KKMP.</p></article>
+      </div>
+      <div class="kartu kartu-tabel">
+        <div class="tabel-wadah" tabindex="0" role="region" aria-label="Tabel pengguna">
+          <table class="tabel">
+            <thead><tr><th scope="col" class="tc">No</th><th scope="col">Nama Lengkap</th><th scope="col">Username</th><th scope="col">Peran</th><th scope="col" class="tc">Akses</th><th scope="col">Dibuat</th><th scope="col" class="tc">Aksi</th></tr></thead>
+            <tbody id="usr-body"><tr><td colspan="7" class="sel-memuat">Memuat data...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- ===== AKHIR BLOK: M14_HASIL_VERVAL ===== -->
+
+
+    <!-- ===== BLOK: M10_KELOLA_BERITA ===== -->
+    <section class="ad-hal" id="ad-berita" data-adhal="berita" aria-labelledby="h-kb" hidden>
+      <header class="judul-hal">
+        <div><span class="eyebrow">Publikasi</span><h1 class="h-hal" id="h-kb">Kelola Warta &amp; Berita</h1><p class="lead">Informasi, dokumentasi kegiatan, dan pengumuman resmi KKMP.</p></div>
+        <button class="btn btn-utama" id="brt-tambah" type="button"><span class="ik" aria-hidden="true">add</span><span>Tambah Berita</span></button>
+      </header>
+      <div class="bento">
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Total Berita</span><span class="stat-angka" id="kb-total">0</span></div>
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Kategori Aktif</span><span class="stat-angka" id="kb-kategori">0</span></div>
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Terbit</span><span class="stat-angka" id="kb-terbit">0</span></div>
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Draft</span><span class="stat-angka" id="kb-draft">0</span></div>
+      </div>
+      <div class="kartu kartu-tabel">
+        <div class="toolbar">
+          <div class="medan medan-cari"><label class="sr" for="kb-cari">Cari judul berita</label><span class="ik medan-ikon" aria-hidden="true">search</span><input class="input" id="kb-cari" type="search" placeholder="Cari judul berita..."></div>
+          <div class="medan medan-kecil"><label class="sr" for="kb-filter-kategori">Filter kategori</label><select class="input" id="kb-filter-kategori"><option value="">Semua Kategori</option></select></div>
+          <div class="medan medan-kecil"><label class="sr" for="kb-filter-status">Filter status</label><select class="input" id="kb-filter-status"><option value="">Semua Status</option><option value="Terbit">Terbit</option><option value="Draft">Draft</option></select></div>
+        </div>
+        <div class="tabel-wadah" tabindex="0" role="region" aria-label="Tabel berita">
+          <table class="tabel">
+            <thead><tr><th scope="col" class="tc">No</th><th scope="col">Gambar</th><th scope="col">Judul Berita</th><th scope="col">Tanggal</th><th scope="col">Kategori</th><th scope="col">Penulis</th><th scope="col" class="tc">Status</th><th scope="col" class="tc">Aksi</th></tr></thead>
+            <tbody id="kb-body"><tr><td colspan="8" class="sel-memuat">Memuat data...</td></tr></tbody>
+          </table>
+        </div>
+        <div class="tabel-kaki"><span class="teks-kecil teks-redup" id="kb-info"></span><nav class="pag" id="kb-pag" aria-label="Halaman berita"></nav></div>
+      </div>
+    </section>
+    <!-- ===== AKHIR BLOK: M10_KELOLA_BERITA ===== -->
+
+
+    <!-- ===== BLOK: M11_KELOLA_PUSTAKA ===== -->
+    <section class="ad-hal" id="ad-pustaka" data-adhal="pustaka" aria-labelledby="h-kp" hidden>
+      <header class="judul-hal">
+        <div><span class="eyebrow">Repositori</span><h1 class="h-hal" id="h-kp">Kelola Pustaka Dokumen</h1><p class="lead">Regulasi, berkas akuntabilitas kinerja, dan panduan teknis operasional.</p></div>
+        <div class="judul-hal-aksi">
+          <button class="btn btn-sekunder" id="kp-sinkron" type="button"><span class="ik" aria-hidden="true">sync</span><span>Muat Ulang</span></button>
+          <button class="btn btn-utama" id="kp-tambah" type="button"><span class="ik" aria-hidden="true">add</span><span>Tambah Dokumen</span></button>
+        </div>
+      </header>
+      <div class="bento">
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Total Dokumen</span><span class="stat-angka" id="kp-total">0</span></div>
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Tampil Publik</span><span class="stat-angka" id="kp-tampil">0</span></div>
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Arsip Internal</span><span class="stat-angka" id="kp-sembunyi">0</span></div>
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Kapasitas (MB)</span><span class="stat-angka" id="kp-mb">0</span><div class="progres"><div class="progres-isi pi-merah" id="kp-mb-bar"></div></div></div>
+      </div>
+      <div class="kartu kartu-tabel">
+        <div class="toolbar">
+          <div class="medan medan-cari"><label class="sr" for="kp-cari">Cari dokumen</label><span class="ik medan-ikon" aria-hidden="true">search</span><input class="input" id="kp-cari" type="search" placeholder="Cari dokumen pustaka..."></div>
+          <div class="medan medan-kecil"><label class="sr" for="kp-filter-kategori">Filter kategori</label><select class="input" id="kp-filter-kategori"><option value="">Semua Kategori</option></select></div>
+          <div class="medan medan-kecil"><label class="sr" for="kp-filter-status">Filter status</label><select class="input" id="kp-filter-status"><option value="">Semua Status</option><option value="Tampil">Tampil</option><option value="Sembunyi">Sembunyi</option></select></div>
+          <span class="teks-kecil teks-redup">Menampilkan <b id="kp-terlihat">0</b> dari <span id="kp-semua">0</span> arsip</span>
+        </div>
+        <div class="tabel-wadah" tabindex="0" role="region" aria-label="Tabel pustaka">
+          <table class="tabel">
+            <thead><tr><th scope="col" class="tc">No</th><th scope="col">Judul Dokumen</th><th scope="col">Kategori</th><th scope="col">Tanggal</th><th scope="col" class="tc">Status</th><th scope="col" class="tc">Berkas</th><th scope="col" class="tc">Aksi</th></tr></thead>
+            <tbody id="kp-body"><tr><td colspan="7" class="sel-memuat">Memuat data...</td></tr></tbody>
+          </table>
+        </div>
+        <div class="tabel-kaki"><span class="teks-kecil teks-redup" id="kp-info"></span><nav class="pag" id="kp-pag" aria-label="Halaman pustaka"></nav></div>
+      </div>
+      <div class="kartu kartu-lembut info-kartu"><span class="stat-ikon si-teal" aria-hidden="true"><span class="ik">info</span></span>
+        <div><h2 class="h-kecil">Panduan Unggah Dokumen</h2><p class="teks-redup">Gunakan PDF maksimal 10 MB per berkas. Dokumen lebih besar ditautkan dari Google Drive dengan akses "Siapa saja yang memiliki link".</p></div></div>
+    </section>
+    <!-- ===== AKHIR BLOK: M11_KELOLA_PUSTAKA ===== -->
+
+
+    <!-- ===== BLOK: M12_KONTEN_BERANDA ===== -->
+    <section class="ad-hal" id="ad-konten" data-adhal="konten" aria-labelledby="h-kn" hidden>
+      <header class="judul-hal">
+        <div><span class="eyebrow">Konten Portal</span><h1 class="h-hal" id="h-kn">Konten Beranda &amp; Pengaturan</h1><p class="lead">Materi tayang beranda, infografis publik, dan konfigurasi umum portal.</p></div>
+        <div class="judul-hal-aksi"><span class="lencana ln-sukses"><span class="ik" aria-hidden="true">sync</span>Status: <b id="kn-sinkron">Terbaru</b></span>
+          <button class="btn btn-utama" id="kn-tambah-slider" type="button"><span class="ik" aria-hidden="true">add</span><span>Tambah Sorotan</span></button></div>
+      </header>
+      <div class="tab-daftar" role="tablist" aria-label="Bagian konten">
+        <button class="tab-btn kn-tab aktif" role="tab" type="button" data-tab="slider" aria-selected="true" aria-controls="kn-panel-slider" id="kn-tab-slider"><span class="ik" aria-hidden="true">view_carousel</span>Sorotan Beranda</button>
+        <button class="tab-btn kn-tab" role="tab" type="button" data-tab="infografis" aria-selected="false" aria-controls="kn-panel-infografis" id="kn-tab-infografis" tabindex="-1"><span class="ik" aria-hidden="true">insert_chart</span>Info Grafis</button>
+        <button class="tab-btn kn-tab" role="tab" type="button" data-tab="pengaturan" aria-selected="false" aria-controls="kn-panel-pengaturan" id="kn-tab-pengaturan" tabindex="-1"><span class="ik" aria-hidden="true">settings</span>Pengaturan Portal</button>
+      </div>
+
+      <div class="tab-panel" id="kn-panel-slider" role="tabpanel" aria-labelledby="kn-tab-slider">
+        <div class="bento">
+          <div class="kartu k-12 kn-pratinjau">
+            <div class="kn-hero-bg" id="kn-hero-bg" aria-hidden="true"></div>
+            <div class="kn-hero-isi">
+              <span class="eyebrow eyebrow-kaca">Pratinjau sorotan beranda</span>
+              <span class="sorotan-label" id="kn-pv-kapsul">-</span>
+              <p class="sorotan-judul" id="kn-pv-judul">-</p>
+              <p class="sorotan-sub" id="kn-pv-sub">-</p>
+            </div>
+          </div>
+          <div class="k-7 tumpuk">
+            <div class="sec-head sec-head-kecil"><h2 class="h-kartu">Daftar Sorotan <span class="lencana ln-netral" id="kn-jumlah">0 Materi</span></h2><span class="teks-kecil teks-redup">Urutan menentukan prioritas tampil</span></div>
+            <div class="daftar-item" id="kn-slider-list"></div>
+          </div>
+          <div class="kartu k-5">
+            <div class="kartu-head"><h2 class="h-kartu" id="kn-editor-judul">Editor Sorotan Baru</h2><span class="lencana ln-info" id="kn-editor-mode">Mode Tambah</span></div>
+            <form class="tumpuk" id="form-slider" novalidate>
+              <input type="hidden" id="sl-id">
+              <div class="medan"><label class="label" for="sl-nama">Nama sorotan</label><input class="input" id="sl-nama" type="text" maxlength="100"></div>
+              <div class="medan"><span class="label" id="sl-file-label">Gambar latar</span>
+                <label class="unggah" for="sl-file"><span class="ik" aria-hidden="true">cloud_upload</span><span class="unggah-teks"><b id="sl-file-nama">Pilih atau seret gambar</b><span>JPG/PNG/WEBP, maks. 3 MB, rekomendasi 1920×1080</span></span></label>
+                <input class="sr" id="sl-file" type="file" accept="image/png,image/jpeg,image/webp" aria-labelledby="sl-file-label"></div>
+              <div class="medan"><label class="label" for="sl-kapsul">Label kapsul</label><input class="input" id="sl-kapsul" type="text" maxlength="80"></div>
+              <div class="medan"><label class="label" for="sl-judul">Judul utama</label><input class="input" id="sl-judul" type="text" maxlength="120"></div>
+              <div class="medan"><label class="label" for="sl-sub">Sub judul</label><textarea class="input" id="sl-sub" rows="3" maxlength="300"></textarea></div>
+              <div class="medan"><label class="label" for="sl-terkait">Terkait</label><input class="input" id="sl-terkait" type="text" maxlength="100"></div>
+              <div class="form-grid">
+                <div class="medan"><label class="label" for="sl-urutan">Urutan tayang</label><input class="input" id="sl-urutan" type="number" min="1" max="999" value="1"></div>
+                <div class="medan"><label class="label" for="sl-status">Status tayang</label><select class="input" id="sl-status"><option value="Ya">Ya (Aktif)</option><option value="Tidak">Tidak (Arsip)</option></select></div>
+              </div>
+              <div class="baris-tombol baris-kanan"><button class="btn btn-sekunder" id="sl-batal" type="button">Batal</button><button class="btn btn-utama" id="sl-simpan" type="submit"><span class="ik" aria-hidden="true">save</span><span>Simpan</span></button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="kn-panel-infografis" role="tabpanel" aria-labelledby="kn-tab-infografis" hidden>
+        <div class="bento">
+          <div class="kartu k-4"><div class="kartu-head"><h2 class="h-kecil">Sebaran RAT</h2><span class="lencana ln-sukses">Aktif</span></div>
+            <div class="mini-vis" id="kn-vis-rat"></div><div class="kartu-kaki"><span class="teks-kecil teks-redup" id="kn-ket-rat">-</span><button class="tautan" type="button" data-ad="rat">Kelola data</button></div></div>
+          <div class="kartu k-4"><div class="kartu-head"><h2 class="h-kecil">Distribusi Koperasi</h2><span class="lencana ln-sukses">Aktif</span></div>
+            <div class="mini-vis" id="kn-vis-kop"></div><div class="kartu-kaki"><span class="teks-kecil teks-redup" id="kn-ket-kop">-</span><button class="tautan" type="button" data-ad="koperasi">Kelola data</button></div></div>
+          <div class="kartu k-4"><div class="kartu-head"><h2 class="h-kecil">Realisasi Fisik Gerai</h2><span class="lencana ln-sukses">Aktif</span></div>
+            <div class="mini-vis"><span class="ik ik-48 teks-merah" aria-hidden="true">map</span></div><div class="kartu-kaki"><span class="teks-kecil teks-redup" id="kn-ket-gerai">-</span><button class="tautan" type="button" data-ad="gerai">Kelola data</button></div></div>
+          <div class="kartu k-12">
+            <div class="kartu-head"><h2 class="h-kartu">Infografis Publik Tersemat</h2><button class="btn btn-utama" id="ig-tambah" type="button"><span class="ik" aria-hidden="true">upload_file</span><span>Unggah PDF/Gambar</span></button></div>
+            <div class="berkas-grid" id="kn-ig-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="kn-panel-pengaturan" role="tabpanel" aria-labelledby="kn-tab-pengaturan" hidden>
+        <div class="kartu kartu-tabel">
+          <div class="kartu-head"><div><h2 class="h-kartu">Konfigurasi Umum Portal</h2><p class="teks-redup">Identitas institusi, kontak, dan parameter operasional dashboard.</p></div>
+            <button class="btn btn-utama btn-simpan-cfg" type="button"><span class="ik" aria-hidden="true">save</span><span>Simpan Pengaturan</span></button></div>
+          <div class="tabel-wadah" tabindex="0" role="region" aria-label="Tabel pengaturan portal">
+            <table class="tabel tabel-cfg">
+              <thead><tr><th scope="col">Kunci Parameter</th><th scope="col">Keterangan</th><th scope="col">Nilai</th></tr></thead>
+              <tbody id="kn-cfg-body"><tr><td colspan="3" class="sel-memuat">Memuat pengaturan...</td></tr></tbody>
+            </table>
+          </div>
+          <div class="tabel-kaki baris-kanan"><button class="btn btn-utama btn-simpan-cfg" type="button"><span class="ik" aria-hidden="true">save</span><span>Simpan Pengaturan</span></button></div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== AKHIR BLOK: M12_KONTEN_BERANDA ===== -->
+
+
+    <!-- ===== BLOK: M13_PESAN_MASUK ===== -->
+    <section class="ad-hal" id="ad-pesan" data-adhal="pesan" aria-labelledby="h-ps" hidden>
+      <header class="judul-hal">
+        <div><span class="eyebrow">Aspirasi Publik</span><h1 class="h-hal" id="h-ps">Pesan Masuk</h1><p class="lead">Kotak pesan dan permohonan konsultasi dari formulir kontak portal.</p></div>
+        <button class="btn btn-sekunder" id="ps-refresh" type="button"><span class="ik" aria-hidden="true">refresh</span><span>Perbarui</span></button>
+      </header>
+      <div class="bento">
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Total Pesan</span><span class="stat-angka" id="ps-total">0</span></div>
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Pesan Baru</span><span class="stat-angka teks-merah" id="ps-baru">0</span></div>
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Telah Dibaca</span><span class="stat-angka" id="ps-dibaca">0</span></div>
+        <div class="kartu stat stat-ringkas k-3"><span class="stat-label">Ditanggapi</span><span class="stat-angka" id="ps-tanggap">0</span></div>
+        <div class="kartu k-5 ps-kiri">
+          <div class="medan medan-cari"><label class="sr" for="ps-cari">Cari pengirim atau pesan</label><span class="ik medan-ikon" aria-hidden="true">search</span><input class="input" id="ps-cari" type="search" placeholder="Cari pengirim atau pesan..."></div>
+          <div class="toolbar toolbar-rapat">
+            <div class="medan medan-kecil"><label class="sr" for="ps-filter">Filter status pesan</label><select class="input" id="ps-filter"><option value="">Semua Status</option><option value="Baru">Baru</option><option value="Dibaca">Dibaca</option><option value="Ditanggapi">Ditanggapi</option></select></div>
+            <span class="teks-kecil teks-redup" id="ps-hitung">0 Pesan</span>
+          </div>
+          <div class="ps-list" id="ps-list" role="list" aria-label="Daftar pesan"></div>
+        </div>
+        <div class="kartu k-7 ps-kanan">
+          <div class="ps-detail" id="ps-detail" hidden>
+            <div class="ps-dt-head">
+              <span class="avatar avatar-besar" id="ps-avatar" aria-hidden="true">-</span>
+              <div class="ps-dt-kol">
+                <h2 class="h-kartu"><span id="ps-nama">-</span> <span class="lencana ln-netral" id="ps-peran">-</span></h2>
+                <span class="ps-kontak"><span class="ik ik-16" aria-hidden="true">mail</span><span id="ps-email">-</span><span class="ik ik-16" aria-hidden="true">call</span><span id="ps-telp">-</span></span>
+              </div>
+              <span class="ps-waktu"><span class="label-mini">Waktu masuk</span><b id="ps-waktu">-</b></span>
+            </div>
+            <div class="kartu-lembut ps-perihal">
+              <span class="label-mini">Perihal</span>
+              <h3 class="h-kecil" id="ps-subjek">-</h3>
+              <span class="teks-kecil teks-redup"><span class="ik ik-16" aria-hidden="true">apartment</span> Entitas: <b id="ps-entitas">-</b></span>
+            </div>
+            <div class="ps-isi">
+              <div class="ps-isi-head"><span class="label-mini">Uraian konsultasi</span><button class="btn btn-hantu btn-kecil" id="ps-salin" type="button"><span class="ik" aria-hidden="true">content_copy</span><span>Salin teks</span></button></div>
+              <div class="ps-isi-teks" id="ps-isi"></div>
+            </div>
+            <div class="ps-aksi">
+              <div class="baris-tombol">
+                <label class="label-mini" for="ps-status">Ubah status</label>
+                <select class="input input-ringkas" id="ps-status"><option value="Baru">Baru</option><option value="Dibaca">Dibaca</option><option value="Ditanggapi">Ditanggapi</option></select>
+                <button class="btn btn-utama" id="ps-simpan" type="button"><span class="ik" aria-hidden="true">check</span><span>Simpan</span></button>
+              </div>
+              <div class="baris-tombol">
+                <a class="btn btn-sekunder" id="ps-balas" href="#" target="_blank" rel="noopener"><span class="ik" aria-hidden="true">reply</span><span>Balas E-mail</span></a>
+                <button class="btn btn-bahaya" id="ps-hapus" type="button"><span class="ik" aria-hidden="true">delete</span><span>Hapus</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="kosong-besar" id="ps-kosong">
+            <span class="stat-ikon stat-ikon-besar" aria-hidden="true"><span class="ik">drafts</span></span>
+            <h2 class="h-kecil">Belum ada pesan dipilih</h2>
+            <p class="teks-redup">Pilih salah satu pesan dari daftar untuk meninjau aspirasi masyarakat.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== AKHIR BLOK: M13_PESAN_MASUK ===== -->
+  </main>
+
+
+  <!-- ===== BLOK: DRAWER_PENGGUNA ===== -->
+  <aside class="drawer" id="dr-pengguna" role="dialog" aria-modal="true" aria-labelledby="dr-usr-judul" hidden>
+    <div class="drawer-head"><div><span class="eyebrow">Keamanan Akses</span><h2 class="h-kartu" id="dr-usr-judul">Tambah Pengguna</h2></div>
+      <button class="btn btn-ikon btn-hantu" type="button" data-tutup aria-label="Tutup formulir"><span class="ik" aria-hidden="true">close</span></button></div>
+    <form class="drawer-body" id="form-pengguna" novalidate autocomplete="off">
+      <input type="hidden" id="uf-id">
+      <div class="medan"><label class="label" for="uf-nama">Nama lengkap <abbr title="wajib">*</abbr></label><input class="input" id="uf-nama" type="text" maxlength="100" required></div>
+      <div class="medan"><label class="label" for="uf-user">Username <abbr title="wajib">*</abbr></label><input class="input" id="uf-user" type="text" maxlength="30" autocomplete="off" autocapitalize="none" spellcheck="false" required aria-describedby="uf-user-bantu"><span class="bantuan" id="uf-user-bantu">3–30 karakter: huruf, angka, titik, garis bawah, atau tanda hubung.</span></div>
+      <div class="form-grid">
+        <div class="medan"><label class="label" for="uf-peran">Peran</label><select class="input" id="uf-peran"><option value="Petugas Verval">Petugas Verval</option><option value="Akses Monitoring">Akses Monitoring</option><option value="Admin">Admin</option></select></div>
+        <div class="medan"><label class="label" for="uf-aktif">Hak akses</label><select class="input" id="uf-aktif"><option value="Ya">Aktif (diberikan)</option><option value="Tidak">Nonaktif (dicabut)</option></select></div>
+      </div>
+      <div class="medan"><label class="label" for="uf-pass" id="uf-pass-label">Password <abbr title="wajib">*</abbr></label><input class="input" id="uf-pass" type="password" autocomplete="new-password" aria-describedby="uf-pass-bantu"><span class="bantuan" id="uf-pass-bantu">Minimal 8 karakter, mengandung huruf dan angka. Password disimpan dalam bentuk hash.</span></div>
+      <div class="medan"><label class="label" for="uf-pass2">Ulangi password</label><input class="input" id="uf-pass2" type="password" autocomplete="new-password"></div>
+    </form>
+    <div class="drawer-foot"><button class="btn btn-sekunder" type="button" data-tutup>Batal</button><button class="btn btn-utama" type="submit" form="form-pengguna" id="uf-simpan"><span class="ik" aria-hidden="true">save</span><span>Simpan</span></button></div>
+  </aside>
+  <!-- ===== AKHIR BLOK: DRAWER_PENGGUNA ===== -->
+
+  <!-- ===== BLOK: DRAWER_KOPERASI ===== -->
+  <aside class="drawer" id="dr-koperasi" role="dialog" aria-modal="true" aria-labelledby="dr-kop-judul" hidden>
+    <div class="drawer-head"><div><span class="eyebrow">Formulir</span><h2 class="h-kartu" id="dr-kop-judul">Tambah / Ubah Data Koperasi</h2></div>
+      <button class="btn btn-ikon btn-hantu" type="button" data-tutup aria-label="Tutup formulir"><span class="ik" aria-hidden="true">close</span></button></div>
+    <form class="drawer-body" id="form-koperasi" novalidate>
+      <input type="hidden" id="kf-id">
+      <fieldset class="kf-grup">
+        <legend class="kf-legend"><span class="kf-huruf" aria-hidden="true">A</span>Identitas Koperasi</legend>
+        <div class="form-grid">
+          <div class="medan"><label class="label" for="kf-kec">Kecamatan <abbr title="wajib">*</abbr></label><select class="input" id="kf-kec" required><option value="" disabled selected>Pilih Kecamatan</option></select></div>
+          <div class="medan"><label class="label" for="kf-kel">Kelurahan <abbr title="wajib">*</abbr></label><select class="input" id="kf-kel" required disabled><option value="">Pilih kecamatan dahulu</option></select></div>
+        </div>
+        <div class="form-grid kf-grid-nama">
+          <div class="medan"><label class="label" for="kf-nama">Nama KKMP <abbr title="wajib">*</abbr></label><input class="input" id="kf-nama" type="text" maxlength="120" placeholder="Contoh: KKMP Jambula" required></div>
+          <div class="medan"><label class="label" for="kf-nomor">No. urut</label><input class="input" id="kf-nomor" type="text" inputmode="numeric" maxlength="4" placeholder="1–78"></div>
+        </div>
+        <div class="medan"><label class="label" for="kf-alamat">Alamat lengkap <abbr title="wajib">*</abbr></label><textarea class="input" id="kf-alamat" rows="2" maxlength="300" required></textarea></div>
+      </fieldset>
+      <fieldset class="kf-grup">
+        <legend class="kf-legend"><span class="kf-huruf" aria-hidden="true">B</span>Data Kependudukan</legend>
+        <div class="kf-penduduk">
+          <div class="medan"><label class="label" for="kf-l">Laki-laki</label><input class="input tc" id="kf-l" type="text" inputmode="numeric" maxlength="9" placeholder="0"></div>
+          <div class="medan"><label class="label" for="kf-p">Perempuan</label><input class="input tc" id="kf-p" type="text" inputmode="numeric" maxlength="9" placeholder="0"></div>
+          <div class="medan"><span class="label" id="kf-total-label">Total</span><output class="input kf-total" id="kf-total" aria-labelledby="kf-total-label" for="kf-l kf-p">–</output></div>
+        </div>
+        <p class="bantuan">Total dihitung otomatis dari jumlah Laki-laki + Perempuan.</p>
+      </fieldset>
+      <fieldset class="kf-grup">
+        <legend class="kf-legend"><span class="kf-huruf" aria-hidden="true">C</span>Legalitas Koperasi</legend>
+        <div class="form-grid">
+          <div class="medan"><label class="label" for="kf-nik">NIKOP</label><input class="input" id="kf-nik" type="text" inputmode="numeric" maxlength="20" autocomplete="off" placeholder="Contoh: 8271010080049"></div>
+          <div class="medan"><label class="label" for="kf-nib">NIB</label><input class="input" id="kf-nib" type="text" inputmode="numeric" maxlength="13" autocomplete="off" placeholder="13 digit" aria-describedby="kf-nib-bantu"><span class="bantuan" id="kf-nib-bantu">Angka nol di depan tetap tersimpan.</span></div>
+        </div>
+        <div class="form-grid kf-grid-sk">
+          <div class="medan"><label class="label" for="kf-sk">Nomor SK AHU</label><input class="input" id="kf-sk" type="text" maxlength="120" autocomplete="off" placeholder="AHU-0000000.AH.01.29.TAHUN 2025"></div>
+          <div class="medan"><label class="label" for="kf-tgl-sk">Tanggal SK AHU</label><input class="input" id="kf-tgl-sk" type="date"></div>
+        </div>
+        <div class="form-grid">
+          <div class="medan"><label class="label" for="kf-npwp">NPWP</label><select class="input" id="kf-npwp"><option value="Sudah">Sudah</option><option value="Belum">Belum</option></select></div>
+          <div class="medan"><label class="label" for="kf-akun">Memiliki akun</label><select class="input" id="kf-akun"><option value="Ya">Ya</option><option value="Tidak">Tidak</option></select></div>
+        </div>
+        <div class="kf-indikator" aria-live="polite">
+          <span class="label-mini">Indikator otomatis (tampil di halaman publik)</span>
+          <div class="kf-indikator-isi" id="kf-indikator"></div>
+          <p class="bantuan kf-lama" id="kf-lama" hidden></p>
+        </div>
+      </fieldset>
+    </form>
+    <div class="drawer-foot"><button class="btn btn-sekunder" type="button" data-tutup>Batal</button><button class="btn btn-utama" type="submit" form="form-koperasi" id="kf-simpan"><span class="ik" aria-hidden="true">save</span><span>Simpan</span></button></div>
+  </aside>
+  <!-- ===== AKHIR BLOK: DRAWER_KOPERASI ===== -->
+
+  <!-- ===== BLOK: DRAWER_RAT ===== -->
+  <aside class="drawer" id="dr-rat" role="dialog" aria-modal="true" aria-labelledby="rf-judul" hidden>
+    <div class="drawer-head"><div><span class="eyebrow">Formulir Administratif</span><h2 class="h-kartu" id="rf-judul">Tambah Pelaksanaan RAT</h2></div>
+      <button class="btn btn-ikon btn-hantu" type="button" data-tutup aria-label="Tutup formulir"><span class="ik" aria-hidden="true">close</span></button></div>
+    <form class="drawer-body" id="form-rat" novalidate>
+      <input type="hidden" id="rf-id">
+      <div class="medan"><label class="label" for="rf-kop">Koperasi <abbr title="wajib">*</abbr></label><select class="input" id="rf-kop" required></select></div>
+      <div class="form-grid">
+        <div class="medan"><label class="label" for="rf-ke">Pelaksanaan ke</label><input class="input" id="rf-ke" type="number" min="1" value="1"></div>
+        <div class="medan"><label class="label" for="rf-tahun">Tahun buku</label><input class="input" id="rf-tahun" type="number" min="2000" max="2100"></div>
+      </div>
+      <div class="medan"><label class="label" for="rf-tanggal">Tanggal RAT</label><input class="input" id="rf-tanggal" type="date"></div>
+      <div class="medan"><label class="label" for="rf-tempat">Tempat</label><input class="input" id="rf-tempat" type="text" maxlength="150" placeholder="Contoh: Aula Kelurahan Tobona"></div>
+      <div class="medan"><label class="label" for="rf-status">Status RAT</label><select class="input" id="rf-status"><option value="Sudah">Sudah</option><option value="Draft">Draft</option><option value="Belum">Belum</option></select></div>
+      <div class="medan"><label class="label" for="rf-laporan">Laporan RAT</label><select class="input" id="rf-laporan"><option value="Sudah Dilaporkan">Sudah Dilaporkan</option><option value="Belum Dilaporkan">Belum Dilaporkan</option></select></div>
+      <div class="medan"><label class="label" for="rf-verif">Verifikasi Dinas</label><select class="input" id="rf-verif"><option value="Sudah">Sudah</option><option value="Belum">Belum</option></select></div>
+    </form>
+    <div class="drawer-foot"><button class="btn btn-sekunder" type="button" data-tutup>Batal</button><button class="btn btn-utama" type="submit" form="form-rat" id="rf-simpan"><span class="ik" aria-hidden="true">save</span><span>Simpan</span></button></div>
+  </aside>
+  <!-- ===== AKHIR BLOK: DRAWER_RAT ===== -->
+
+  <!-- ===== BLOK: DRAWER_GERAI ===== -->
+  <aside class="drawer drawer-lebar" id="dr-gerai" role="dialog" aria-modal="true" aria-labelledby="dr-ger-judul" hidden>
+    <div class="drawer-head"><div><span class="eyebrow">Formulir</span><h2 class="h-kartu" id="dr-ger-judul">Tambah / Ubah Data Gedung Gerai</h2></div>
+      <button class="btn btn-ikon btn-hantu" type="button" data-tutup aria-label="Tutup formulir"><span class="ik" aria-hidden="true">close</span></button></div>
+    <form class="drawer-body" id="form-gerai" novalidate>
+      <input type="hidden" id="gf-id">
+      <div class="medan"><label class="label" for="gf-kop">Koperasi <abbr title="wajib">*</abbr></label><select class="input" id="gf-kop" required></select></div>
+      <div class="form-grid">
+        <div class="medan"><label class="label" for="gf-lahan">Luas lahan (m²)</label><input class="input" id="gf-lahan" type="number" min="0"></div>
+        <div class="medan"><label class="label" for="gf-bangunan">Luas bangunan (m²)</label><input class="input" id="gf-bangunan" type="number" min="0"></div>
+      </div>
+      <div class="medan"><label class="label" for="gf-alamat">Alamat gedung</label><input class="input" id="gf-alamat" type="text" maxlength="250"></div>
+      <div class="form-grid">
+        <div class="medan"><label class="label" for="gf-lat">Latitude</label><input class="input" id="gf-lat" type="number" step="any" placeholder="0.7685"></div>
+        <div class="medan"><label class="label" for="gf-lng">Longitude</label><input class="input" id="gf-lng" type="number" step="any" placeholder="127.3615"></div>
+      </div>
+      <div class="form-grid">
+        <div class="medan"><label class="label" for="gf-lahan-status">Status lahan</label><select class="input" id="gf-lahan-status"><option value="Terverifikasi">Terverifikasi</option><option value="Belum Terverifikasi">Belum Terverifikasi</option></select></div>
+        <div class="medan"><label class="label" for="gf-progres">Progres fisik (%)</label><input class="input" id="gf-progres" type="number" min="0" max="100" aria-describedby="gf-progres-bantu"><span class="bantuan" id="gf-progres-bantu">Skala 0–100.</span></div>
+      </div>
+      <div class="form-grid">
+        <div class="medan"><label class="label" for="gf-tahap">Tahap pekerjaan</label><input class="input" id="gf-tahap" type="text" maxlength="100" placeholder="Contoh: Konstruksi Atap"></div>
+        <div class="medan"><label class="label" for="gf-catatan">Catatan kendala</label><input class="input" id="gf-catatan" type="text" maxlength="300"></div>
+      </div>
+      <fieldset class="kartu-lembut gf-otomatis">
+        <legend class="label-mini">Status dari Hasil Verval (otomatis)</legend>
+        <div class="gf-otomatis-baris"><span class="label">SARPRAS</span><span id="gf-sarpras-auto"></span></div>
+        <div class="gf-otomatis-baris"><span class="label">Verval</span><span id="gf-verval-auto"></span></div>
+        <p class="bantuan">Kedua status ini dibaca dari menu Hasil Verval dan tidak dapat diubah di sini.</p>
+      </fieldset>
+      <div class="medan"><label class="label" for="gf-simkopdes">Laporan SIMKOPDES</label><select class="input" id="gf-simkopdes" aria-describedby="gf-simkopdes-bantu"><option value="Sudah">Sudah</option><option value="Belum">Belum</option></select><span class="bantuan" id="gf-simkopdes-bantu"></span></div>
+      <div class="medan"><span class="label" id="gf-foto-label">Foto dokumentasi</span>
+        <div class="unggah unggah-baris"><div class="unggah-pratinjau" id="gf-foto-box"><span class="ik" aria-hidden="true">image</span></div>
+          <div class="unggah-teks"><input class="input-file" id="gf-foto" type="file" accept="image/png,image/jpeg,image/webp" aria-labelledby="gf-foto-label"><span>JPG/PNG/WEBP, maksimal 5 MB.</span></div></div></div>
+      <div class="medan"><label class="label" for="gf-update">Terakhir diperbarui (otomatis)</label><input class="input" id="gf-update" type="date" readonly></div>
+    </form>
+    <div class="drawer-foot"><button class="btn btn-sekunder" type="button" data-tutup>Batal</button><button class="btn btn-utama" type="submit" form="form-gerai" id="gf-simpan"><span class="ik" aria-hidden="true">save</span><span>Simpan</span></button></div>
+  </aside>
+  <!-- ===== AKHIR BLOK: DRAWER_GERAI ===== -->
+
+  <!-- ===== BLOK: DRAWER_BERITA ===== -->
+  <aside class="drawer drawer-lebar" id="dr-berita" role="dialog" aria-modal="true" aria-labelledby="dr-brt-judul" hidden>
+    <div class="drawer-head"><div><span class="eyebrow">Publikasi</span><h2 class="h-kartu" id="dr-brt-judul">Tambah / Ubah Warta Berita</h2></div>
+      <button class="btn btn-ikon btn-hantu" type="button" data-tutup aria-label="Tutup formulir"><span class="ik" aria-hidden="true">close</span></button></div>
+    <form class="drawer-body" id="form-berita" novalidate>
+      <input type="hidden" id="bf-id">
+      <div class="medan"><label class="label" for="bf-judul">Judul berita <abbr title="wajib">*</abbr></label><input class="input" id="bf-judul" type="text" maxlength="200"></div>
+      <div class="form-grid">
+        <div class="medan"><label class="label" for="bf-tanggal">Tanggal terbit</label><input class="input" id="bf-tanggal" type="date"></div>
+        <div class="medan"><label class="label" for="bf-kategori">Kategori</label><select class="input" id="bf-kategori"></select></div>
+      </div>
+      <div class="medan"><span class="label" id="bf-file-label">Gambar sampul</span>
+        <label class="unggah unggah-baris" for="bf-file"><div class="unggah-pratinjau" id="bf-thumb"><span class="ik" aria-hidden="true">image</span></div>
+          <span class="unggah-teks"><b id="bf-file-nama">Unggah berkas baru</b><span>PNG, JPG, atau WEBP (maksimal 2 MB)</span></span></label>
+        <input class="sr" id="bf-file" type="file" accept="image/png,image/jpeg,image/webp" aria-labelledby="bf-file-label"></div>
+      <div class="medan"><label class="label" for="bf-caption">Keterangan foto</label><input class="input" id="bf-caption" type="text" maxlength="250"></div>
+      <div class="medan"><label class="label" for="bf-ringkasan">Ringkasan <abbr title="wajib">*</abbr> <span class="teks-redup" id="bf-hitung">0/200</span></label><textarea class="input" id="bf-ringkasan" rows="2" maxlength="200"></textarea></div>
+      <div class="medan"><label class="label" for="bf-isi">Isi berita <abbr title="wajib">*</abbr></label>
+        <div class="editor">
+          <div class="editor-toolbar" role="toolbar" aria-label="Format teks">
+            <button class="btn btn-ikon btn-hantu btn-kecil editor-btn" type="button" data-format="b" aria-label="Tebal"><span class="ik" aria-hidden="true">format_bold</span></button>
+            <button class="btn btn-ikon btn-hantu btn-kecil editor-btn" type="button" data-format="i" aria-label="Miring"><span class="ik" aria-hidden="true">format_italic</span></button>
+            <button class="btn btn-ikon btn-hantu btn-kecil editor-btn" type="button" data-format="ul" aria-label="Daftar poin"><span class="ik" aria-hidden="true">format_list_bulleted</span></button>
+            <button class="btn btn-ikon btn-hantu btn-kecil editor-btn" type="button" data-format="a" aria-label="Sisipkan tautan"><span class="ik" aria-hidden="true">link</span></button>
+          </div>
+          <textarea class="input editor-area" id="bf-isi" rows="9" aria-describedby="bf-isi-bantu"></textarea>
+        </div>
+        <span class="bantuan" id="bf-isi-bantu">Pisahkan paragraf dengan baris kosong. Awali baris dengan &gt; untuk kutipan.</span></div>
+      <div class="medan"><label class="label" for="bf-tagar">Tagar</label><input class="input" id="bf-tagar" type="text" maxlength="250" placeholder="Pisahkan dengan koma"></div>
+      <div class="form-grid">
+        <div class="medan"><label class="label" for="bf-penulis">Penulis</label><input class="input" id="bf-penulis" type="text" maxlength="100"></div>
+        <div class="medan"><label class="label" for="bf-unggulan">Berita unggulan</label><select class="input" id="bf-unggulan"><option value="Tidak">Tidak</option><option value="Ya">Ya</option></select></div>
+      </div>
+      <div class="medan"><label class="label" for="bf-status">Status publikasi</label><select class="input" id="bf-status"><option value="Terbit">Terbit</option><option value="Draft">Draft</option></select></div>
+    </form>
+    <div class="drawer-foot"><button class="btn btn-sekunder" type="button" data-tutup>Batal</button><button class="btn btn-utama" type="submit" form="form-berita" id="bf-simpan"><span class="ik" aria-hidden="true">save</span><span>Simpan</span></button></div>
+  </aside>
+  <!-- ===== AKHIR BLOK: DRAWER_BERITA ===== -->
+
+  <!-- ===== BLOK: DRAWER_PUSTAKA ===== -->
+  <aside class="drawer" id="dr-pustaka" role="dialog" aria-modal="true" aria-labelledby="dr-pus-judul" hidden>
+    <div class="drawer-head"><div><span class="eyebrow">Repositori</span><h2 class="h-kartu" id="dr-pus-judul">Tambah / Ubah Dokumen Pustaka</h2></div>
+      <button class="btn btn-ikon btn-hantu" type="button" data-tutup aria-label="Tutup formulir"><span class="ik" aria-hidden="true">close</span></button></div>
+    <form class="drawer-body" id="form-pustaka" novalidate>
+      <input type="hidden" id="pf-id">
+      <div class="medan"><label class="label" for="pf-judul">Judul dokumen <abbr title="wajib">*</abbr></label><input class="input" id="pf-judul" type="text" maxlength="200"></div>
+      <div class="medan"><label class="label" for="pf-kategori">Kategori <abbr title="wajib">*</abbr></label><select class="input" id="pf-kategori"><option value="" disabled selected>Pilih kategori berkas</option></select></div>
+      <div class="medan"><label class="label" for="pf-tanggal">Tanggal dokumen <abbr title="wajib">*</abbr></label><input class="input" id="pf-tanggal" type="date"></div>
+      <div class="medan"><span class="label" id="pf-sumber-label">Sumber berkas <abbr title="wajib">*</abbr></span>
+        <div class="segmen segmen-penuh" role="radiogroup" aria-labelledby="pf-sumber-label">
+          <button class="segmen-btn pf-tab aktif" type="button" role="radio" aria-checked="true" data-sumber="Unggah PDF">Unggah PDF</button>
+          <button class="segmen-btn pf-tab" type="button" role="radio" aria-checked="false" data-sumber="Link Google Drive">Link Google Drive</button>
+        </div>
+        <div class="unggah unggah-kolom" id="pf-panel-unggah">
+          <span class="ik" aria-hidden="true">upload_file</span>
+          <span class="unggah-teks"><b id="pf-file-nama">Tarik &amp; lepaskan file PDF di sini</b><span>Maksimum 10 MB</span></span>
+          <label class="btn btn-sekunder btn-kecil" for="pf-file">Pilih berkas PDF</label>
+          <input class="sr" id="pf-file" type="file" accept="application/pdf">
+        </div>
+        <div class="tumpuk" id="pf-panel-drive" hidden>
+          <label class="sr" for="pf-link">Tautan Google Drive</label><input class="input" id="pf-link" type="url" placeholder="https://drive.google.com/file/d/..." aria-describedby="pf-link-bantu">
+          <span class="bantuan" id="pf-link-bantu">Pastikan akses tautan disetel ke "Siapa saja yang memiliki link".</span>
+          <label class="label" for="pf-ukuran">Ukuran berkas (MB, opsional)</label><input class="input" id="pf-ukuran" type="number" min="0" step="0.1">
+        </div>
+      </div>
+      <div class="medan"><label class="label" for="pf-ket">Keterangan</label><textarea class="input" id="pf-ket" rows="3" maxlength="300"></textarea></div>
+      <div class="medan"><label class="label" for="pf-status">Status publikasi</label><select class="input" id="pf-status"><option value="Tampil">Tampil (terbuka untuk umum)</option><option value="Sembunyi">Sembunyi (arsip internal)</option></select></div>
+    </form>
+    <div class="drawer-foot"><button class="btn btn-sekunder" type="button" data-tutup>Batal</button><button class="btn btn-utama" type="submit" form="form-pustaka" id="pf-simpan"><span class="ik" aria-hidden="true">save</span><span>Simpan</span></button></div>
+  </aside>
+  <!-- ===== AKHIR BLOK: DRAWER_PUSTAKA ===== -->
+
+  <!-- ===== BLOK: DRAWER_INFOGRAFIS ===== -->
+  <aside class="drawer" id="dr-infografis" role="dialog" aria-modal="true" aria-labelledby="dr-ig-judul" hidden>
+    <div class="drawer-head"><div><span class="eyebrow">Info Grafis</span><h2 class="h-kartu" id="dr-ig-judul">Tambah / Ubah Infografis Publik</h2></div>
+      <button class="btn btn-ikon btn-hantu" type="button" data-tutup aria-label="Tutup formulir"><span class="ik" aria-hidden="true">close</span></button></div>
+    <form class="drawer-body" id="form-infografis" novalidate>
+      <input type="hidden" id="if-id">
+      <div class="medan"><label class="label" for="if-judul">Judul <abbr title="wajib">*</abbr></label><input class="input" id="if-judul" type="text" maxlength="150"></div>
+      <div class="medan"><label class="label" for="if-ket">Keterangan</label><textarea class="input" id="if-ket" rows="3" maxlength="300"></textarea></div>
+      <div class="medan"><span class="label">Berkas infografis <abbr title="wajib">*</abbr></span>
+        <div class="unggah unggah-kolom"><span class="ik" aria-hidden="true">upload_file</span><span class="unggah-teks"><b id="if-file-nama">Pilih gambar atau PDF</b><span>JPG/PNG/WEBP/PDF, maksimum 5 MB</span></span>
+          <label class="btn btn-sekunder btn-kecil" for="if-file">Pilih berkas</label><input class="sr" id="if-file" type="file" accept="image/png,image/jpeg,image/webp,application/pdf"></div></div>
+      <div class="form-grid">
+        <div class="medan"><label class="label" for="if-urutan">Urutan</label><input class="input" id="if-urutan" type="number" min="1" max="999" value="1"></div>
+        <div class="medan"><label class="label" for="if-status">Status tayang</label><select class="input" id="if-status"><option value="Ya">Ya (Aktif)</option><option value="Tidak">Tidak (Arsip)</option></select></div>
+      </div>
+    </form>
+    <div class="drawer-foot"><button class="btn btn-sekunder" type="button" data-tutup>Batal</button><button class="btn btn-utama" type="submit" form="form-infografis" id="if-simpan"><span class="ik" aria-hidden="true">save</span><span>Simpan</span></button></div>
+  </aside>
+  <!-- ===== AKHIR BLOK: DRAWER_INFOGRAFIS ===== -->
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+
+  <!-- ===== BLOK: MODAL_HAPUS ===== -->
+  <div class="modal-latar" id="modal-hapus" hidden>
+    <div class="modal" role="alertdialog" aria-modal="true" aria-labelledby="mh-judul" aria-describedby="mh-teks">
+      <div class="modal-head"><span class="stat-ikon si-merah" aria-hidden="true"><span class="ik" id="mh-ikon">warning</span></span>
+        <div><h2 class="h-kartu" id="mh-judul">Konfirmasi Hapus Data</h2><p class="teks-redup" id="mh-sub">Tindakan ini tidak dapat dibatalkan</p></div></div>
+      <p class="modal-teks" id="mh-teks">Apakah Anda yakin ingin menghapus data ini?</p>
+      <div class="baris-tombol baris-kanan"><button class="btn btn-sekunder" id="mh-batal" type="button">Batal</button><button class="btn btn-bahaya" id="mh-ok" type="button">Hapus Data</button></div>
+    </div>
+  </div>
+  <!-- ===== AKHIR BLOK: MODAL_HAPUS ===== -->
+</div>
+<!-- ===== AKHIR BLOK: ADMIN ===== -->
+
+
+<!-- ===== BLOK: ASISTEN_DATA ===== -->
+<button class="fab-asisten" id="fab-asisten" type="button" data-asisten aria-haspopup="dialog" aria-controls="asisten" hidden>
+  <span class="ik" aria-hidden="true">auto_awesome</span><span class="fab-teks">Asisten KKMP</span>
+</button>
+<aside class="asisten" id="asisten" role="dialog" aria-modal="false" aria-labelledby="as-judul" hidden>
+  <div class="asisten-head">
+    <span class="stat-ikon si-merah" aria-hidden="true"><span class="ik">auto_awesome</span></span>
+    <div><h2 class="h-kartu" id="as-judul">Asisten Data KKMP</h2><span class="lencana ln-perhatian lencana-kecil"><span class="ik" aria-hidden="true">rule</span>Berbasis aturan · belum terhubung layanan AI</span></div>
+    <button class="btn btn-ikon btn-hantu" id="as-tutup" type="button" aria-label="Tutup asisten"><span class="ik" aria-hidden="true">close</span></button>
+  </div>
+  <p class="asisten-catatan">Jawaban disusun otomatis dari data monitoring yang tampil di portal, bukan oleh model AI. Selalu verifikasi sebelum dijadikan dasar keputusan.</p>
+  <div class="form-grid asisten-filter">
+    <div class="medan"><label class="label-mini" for="as-kec">Kecamatan</label><select class="input input-ringkas" id="as-kec"><option value="">Semua kecamatan</option></select></div>
+    <div class="medan"><label class="label-mini" for="as-kel">Kelurahan</label><select class="input input-ringkas" id="as-kel"><option value="">Semua kelurahan</option></select></div>
+  </div>
+  <div class="chip-baris asisten-topik" role="group" aria-label="Topik cepat">
+    <button class="chip" type="button" data-topik="ringkasan">Ringkasan perkembangan</button>
+    <button class="chip" type="button" data-topik="wilayah">Info wilayah</button>
+    <button class="chip" type="button" data-topik="gerai">Progres gerai</button>
+    <button class="chip" type="button" data-topik="rat">Perkembangan RAT</button>
+    <button class="chip" type="button" data-topik="administrasi">Kelengkapan administrasi</button>
+    <button class="chip" type="button" data-topik="rekomendasi">Rekomendasi tindak lanjut</button>
+  </div>
+  <div class="asisten-log" id="as-log" role="log" aria-live="polite" aria-label="Percakapan asisten"></div>
+  <form class="asisten-form" id="as-form">
+    <label class="sr" for="as-input">Tulis pertanyaan tentang data KKMP</label>
+    <input class="input" id="as-input" type="text" autocomplete="off" placeholder="Contoh: progres gerai Ternate Utara" maxlength="200">
+    <button class="btn btn-utama btn-ikon" type="submit" aria-label="Kirim pertanyaan"><span class="ik" aria-hidden="true">send</span></button>
+  </form>
+</aside>
+<!-- ===== AKHIR BLOK: ASISTEN_DATA ===== -->
+
+
+<!-- ===== BLOK: MODAL_FOTO ===== -->
+<div class="modal-latar" id="modal-foto" hidden>
+  <div class="modal modal-foto" role="dialog" aria-modal="true" aria-labelledby="mf-judul">
+    <div class="modal-head"><h2 class="h-kartu" id="mf-judul">Dokumentasi Lapangan Gerai</h2>
+      <button class="btn btn-ikon btn-hantu" id="mf-tutup" type="button" aria-label="Tutup foto"><span class="ik" aria-hidden="true">close</span></button></div>
+    <div class="modal-foto-box" id="mf-box"></div>
+    <div class="baris-antara teks-kecil teks-redup"><span id="mf-lokasi">-</span><span id="mf-status">-</span></div>
+  </div>
+</div>
+<!-- ===== AKHIR BLOK: MODAL_FOTO ===== -->
+
+<!-- ===== BLOK: MODAL_ITEM_VERVAL (popup foto & catatan, mode lihat) ===== -->
+<div class="modal-latar" id="modal-item" hidden>
+  <div class="modal modal-item" role="dialog" aria-modal="true" aria-labelledby="mi-judul">
+    <div class="modal-head"><div><span class="eyebrow eyebrow-ungu" id="mi-bagian">-</span><h2 class="h-kartu" id="mi-judul">-</h2></div>
+      <button class="btn btn-ikon btn-hantu" id="mi-tutup" type="button" aria-label="Tutup popup"><span class="ik" aria-hidden="true">close</span></button></div>
+    <div class="mi-status"><span class="label-mini">Status</span><span id="mi-status"></span></div>
+    <section class="mi-bagian" id="mi-sek-foto" aria-labelledby="mi-foto-judul">
+      <h3 class="label" id="mi-foto-judul">File</h3>
+      <div id="mi-foto-wadah">
+        <div class="mi-utama-wadah">
+          <img id="mi-utama" alt="" hidden>
+          <iframe id="mi-pdf" class="mi-pdf" title="Pratinjau dokumen PDF" hidden></iframe>
+          <span class="mi-memuat" id="mi-memuat"><span class="ik putar" aria-hidden="true">progress_activity</span><span id="mi-memuat-teks">Memuat file…</span></span>
+          <button class="btn btn-ikon btn-kaca mi-nav mi-prev" id="mi-prev" type="button" aria-label="File sebelumnya"><span class="ik" aria-hidden="true">chevron_left</span></button>
+          <button class="btn btn-ikon btn-kaca mi-nav mi-next" id="mi-next" type="button" aria-label="File berikutnya"><span class="ik" aria-hidden="true">chevron_right</span></button>
+        </div>
+        <div class="baris-antara"><span class="teks-kecil teks-redup" id="mi-hitung" aria-live="polite"></span><span class="mi-aksi"><button class="btn btn-hantu btn-kecil" id="mi-unduh" type="button"><span class="ik" aria-hidden="true">download</span><span>Unduh</span></button><button class="btn btn-hantu btn-kecil" id="mi-buka" type="button"><span class="ik" aria-hidden="true">open_in_full</span><span id="mi-buka-teks">Ukuran penuh</span></button></span></div>
+        <div class="mi-strip" id="mi-strip"></div>
+      </div>
+      <p class="mi-kosong" id="mi-foto-kosong" hidden><span class="ik" aria-hidden="true">image_not_supported</span>Tidak ada file untuk item ini.</p>
+    </section>
+    <section class="mi-bagian" id="mi-sek-catatan" aria-labelledby="mi-catatan-judul">
+      <h3 class="label" id="mi-catatan-judul" tabindex="-1">Catatan</h3>
+      <p class="mi-catatan" id="mi-catatan"></p>
+    </section>
+  </div>
+</div>
+<!-- ===== AKHIR BLOK: MODAL_ITEM_VERVAL ===== -->
+
+<!-- ===== BLOK: MODAL_IMPOR_KOPERASI ===== -->
+<div class="modal-latar" id="modal-impor" hidden>
+  <div class="modal modal-impor" role="dialog" aria-modal="true" aria-labelledby="im-judul">
+    <div class="modal-head"><div><span class="eyebrow">Data Koperasi</span><h2 class="h-kartu" id="im-judul">Import Data Excel</h2></div>
+      <button class="btn btn-ikon btn-hantu" id="im-tutup" type="button" aria-label="Tutup"><span class="ik" aria-hidden="true">close</span></button></div>
+    <ol class="im-langkah" aria-label="Tahapan impor">
+      <li id="im-l1" class="aktif">Pilih file</li><li id="im-l2">Pratinjau &amp; validasi</li><li id="im-l3">Hasil</li>
+    </ol>
+    <section id="im-tahap1">
+      <label class="im-drop" id="im-drop" for="im-file">
+        <span class="im-drop-ikon" aria-hidden="true"><svg class="ik-lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v12"/><path d="m17 8-5-5-5 5"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg></span>
+        <b>Pilih atau seret file .xlsx ke sini</b>
+        <span class="teks-redup teks-kecil">Format mengikuti REKAP DATA LEGALITAS DAN IDENTITAS KKMP (kolom No, Kecamatan, Kelurahan, Nama KKMP, Alamat, Jumlah Penduduk Laki-Laki/Perempuan/Total, NIKOP, NIB, Nomor SK, Tanggal SK). Maks 5 MB.</span>
+        <input type="file" id="im-file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+      </label>
+      <p class="teks-kecil teks-redup im-catatan">Data dicocokkan berdasarkan <b>Kecamatan + Kelurahan</b>. Data yang sudah ada akan diperbarui, data baru ditambahkan, dan data yang tidak ada di file <b>tidak dihapus</b>. Kolom kosong di file tidak menghapus data lama.</p>
+    </section>
+    <section id="im-tahap2" hidden>
+      <p class="teks-kecil" id="im-berkas"></p>
+      <div class="im-ringkas" id="im-ringkas"></div>
+      <p class="teks-kecil teks-redup" id="im-kolom"></p>
+      <div class="tabel-wadah im-tabel" tabindex="0" role="region" aria-label="Pratinjau data impor"><table class="tabel"><thead><tr><th scope="col" class="tc">Baris</th><th scope="col">Kecamatan</th><th scope="col">Kelurahan</th><th scope="col">Nama KKMP</th><th scope="col" class="tc">Status</th><th scope="col">Keterangan</th></tr></thead><tbody id="im-body"></tbody></table></div>
+    </section>
+    <div class="baris-tombol baris-kanan im-aksi">
+      <button class="btn btn-sekunder" id="im-batal" type="button">Batal</button>
+      <button class="btn btn-sekunder" id="im-laporan" type="button" hidden><svg class="ik-lucide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span>Unduh Laporan Import</span></button>
+      <button class="btn btn-utama" id="im-konfirmasi" type="button" hidden><span class="ik" aria-hidden="true">task_alt</span><span>Konfirmasi Import</span></button>
+      <button class="btn btn-utama" id="im-lihat" type="button" hidden><span class="ik" aria-hidden="true">table_view</span><span>Lihat Data</span></button>
+    </div>
+  </div>
+</div>
+<!-- ===== AKHIR BLOK: MODAL_IMPOR_KOPERASI ===== -->
+
+<!-- ===== BLOK: TOAST ===== -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span class="ik" id="toast-ikon" aria-hidden="true">check_circle</span>
+  <span id="toast-teks"></span>
+</div>
+<!-- ===== AKHIR BLOK: TOAST ===== -->
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
