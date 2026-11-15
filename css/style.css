@@ -859,6 +859,12 @@ textarea.input { resize: vertical; min-height: 96px; }
 .banner-vrv-tombol { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 20px; border-radius: var(--r-m); background: linear-gradient(145deg, #8b5cf6, #7c3aed);
   color: #fff; font-weight: 700; font-size: 15px; border: 1px solid rgba(255, 255, 255, .18); transition: filter .2s ease; }
 .banner-vrv:hover .banner-vrv-tombol { filter: brightness(1.1); }
+/* Mode terang: kartu Hasil Verval mengikuti warna kartu lain (latar terang, aksen ungu tetap) */
+[data-tema="terang"] .banner-vrv { background: radial-gradient(420px 160px at 92% 120%, rgba(139, 92, 246, .14), transparent 70%), var(--surface); border-color: rgba(124, 58, 237, .35); box-shadow: var(--bayang-1); color: var(--teks); }
+[data-tema="terang"] .banner-vrv:hover, [data-tema="terang"] .banner-vrv:focus-visible { border-color: rgba(124, 58, 237, .7); box-shadow: 0 14px 38px -20px rgba(124, 58, 237, .45); }
+[data-tema="terang"] .banner-vrv-judul { color: var(--teks); }
+[data-tema="terang"] .banner-vrv-desk { color: var(--teks-2); }
+@media (min-width: 900px) { [data-tema="terang"] .banner-vrv-teks { border-left-color: var(--garis); } }
 .banner-vrv-publik { margin-top: 4px; } /* 18px jarak grid + 4px = ±22px di bawah Tabel Data Monitoring */
 @media (max-width: 599px) { .banner-vrv-publik .banner-vrv-tombol { width: 100%; justify-content: center; } }
 .login-tujuan { display: flex; align-items: flex-start; gap: 10px; margin: 4px 0 2px; padding: 12px 14px; border-radius: var(--r-m); border: 1px solid rgba(139, 92, 246, .45); background: var(--ungu-lembut); color: var(--teks-2); font-size: 14px; line-height: 1.5; }
@@ -1130,7 +1136,9 @@ textarea.input { resize: vertical; min-height: 96px; }
   .ig-papan { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); padding: 22px; }
   .pus-grid, .brt-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .brt-kartu-utama { grid-column: span 2; grid-row: span 2; }
-  .brt-kartu-utama .brt-media { aspect-ratio: 16 / 10; }
+  /* kartu utama setinggi dua kartu di sampingnya: foto mengisi sisa tinggi, isi teks tetap ringkas di bawah */
+  .brt-kartu-utama .brt-media { aspect-ratio: auto; flex: 1 1 auto; min-height: 300px; }
+  .brt-kartu-utama .brt-badan { flex: 0 0 auto; }
   .dt-grid { grid-template-columns: minmax(0, 1fr) 340px; gap: 40px; }
   .dt-samping { position: sticky; top: calc(var(--nav-h) + 20px); align-self: start; }
   .kaki-grid { grid-template-columns: 1.4fr 1fr 1.2fr 1fr; }
