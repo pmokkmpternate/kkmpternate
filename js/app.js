@@ -1374,7 +1374,6 @@ function pasangEventKop() {
   $('im-konfirmasi').addEventListener('click', konfirmasiImpor);
   $('im-lihat').addEventListener('click', function () { tutupImpor(); $('kop-filter-kec').value = ''; $('kop-cari').value = ''; S.st.kop.hal = 1; renderKop(); });
   $('im-laporan').addEventListener('click', unduhLaporanImpor);
-  $('modal-impor').addEventListener('click', function (e) { if (e.target === this && !S.imp.sibuk) tutupImpor(); });
 }
 
 // --- Ekspor rekapitulasi (Excel) ---
@@ -3147,7 +3146,7 @@ function pasangEvent() {
   pasangEventItemVrv();
   $('ad-toggle').addEventListener('click', function () { if ($('ad-sidebar').classList.contains('buka')) tutupSidebar(); else bukaSidebar(); });
   $('ad-backdrop').addEventListener('click', tutupSidebar);
-  $('drawer-backdrop').addEventListener('click', tutupDrawer);
+  // Formulir hanya ditutup lewat tombol × atau Batal (klik di luar bingkai tidak menutup)
   $('rk-muat').addEventListener('click', function () { muatRingkasan(true); });
 
   $('kop-tambah').addEventListener('click', function () { formKop(''); });
