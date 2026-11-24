@@ -434,7 +434,7 @@ function isiTautanSosial() {
   const mail = c.contact_official_email ? 'mailto:' + c.contact_official_email : '';
   const aman = function (u) { u = String(u || '').trim(); return /^https:\/\/[^\s"'<>]+$/.test(u) ? u : ''; };
   setTetap('ft-ig', aman(c.link_instagram), 'Tautan Instagram belum tersedia'); set('ft-yt', c.link_youtube); set('ft-mail', mail); set('ft-tel', tel);
-  setTetap('ig-simkopdes', aman(c.link_simkopdes), 'Tautan Simkopdes belum tersedia'); set('kt-tel', tel); set('kt-mail', mail);
+  set('kt-tel', tel); set('kt-mail', mail);
 }
 // ===== AKHIR BLOK: NAVIGASI_PUBLIK =====
 
@@ -574,8 +574,10 @@ function tampilInfografis(animasi) {
         ? '<a class="ig-pdf" href="' + esc(it.BerkasURL) + '" target="_blank" rel="noopener">' + ik('picture_as_pdf') + '<span>Buka dokumen PDF infografis</span></a>'
         : '<img class="ig-img" src="' + esc(it.BerkasURL) + '" alt="' + esc(it.Judul + (it.Keterangan ? '. ' + it.Keterangan : '')) + '" data-buka="' + esc(it.BerkasURL) + '">';
       $('ig-ket').textContent = it.Keterangan || '-';
-      $('ig-unduh').hidden = false; $('ig-unduh').href = it.BerkasURL;
-      $('ig-unduh-ikon').textContent = pdf ? 'download' : 'open_in_new';
+      // "Buka berkas resmi" menuju Tautan resmi (diisi di backend); bila kosong, membuka berkas infografis.
+      const tautanIg = /^https:\/\/[^\s"'<>]+$/.test(String(it.TautanURL || '').trim()) ? String(it.TautanURL).trim() : '';
+      $('ig-unduh').hidden = !(tautanIg || it.BerkasURL); $('ig-unduh').href = tautanIg || it.BerkasURL || '#';
+      $('ig-unduh-ikon').textContent = !tautanIg && pdf ? 'download' : 'open_in_new';
     }
     papan.classList.remove('ganti');
   };
@@ -1830,8 +1832,8 @@ function hapusKp(id) {
 // ===== BLOK: M12_KONTEN_BERANDA =====
 S.slEdit = '';
 let aktifkanTabKonten = null;
-const LABEL_CFG = { link_instagram: 'Link Instagram', link_simkopdes: 'Link Simkopdes', link_youtube: 'Link YouTube' };
-const PLACEHOLDER_CFG = { link_instagram: 'https://www.instagram.com/namaakun', link_simkopdes: 'https://… (alamat SIMKOPDES)', link_youtube: 'https://www.youtube.com/@kanal' };
+const LABEL_CFG = { link_instagram: 'Link Instagram', link_youtube: 'Link YouTube' };
+const PLACEHOLDER_CFG = { link_instagram: 'https://www.instagram.com/namaakun', link_youtube: 'https://www.youtube.com/@kanal' };
 function muatKonten(paksa) {
   if (!S.ringkasan) muatRingkasan(true).then(renderVisIg);
   if (S.ad.konten && !paksa) { renderKonten(); return; }
@@ -1928,19 +1930,22 @@ function hapusSl(id) {
 }
 function formIg(id) {
   const f = id ? S.ad.konten.infografis.filter(function (x) { return x.ID === id; })[0] : null;
-  $('if-id').value = f ? f.ID : ''; $('if-judul').value = f ? f.Judul : ''; $('if-ket').value = f ? f.Keterangan : '';
+  $('if-id').value = f ? f.ID : ''; $('if-judul').value = f ? f.Judul : ''; $('if-ket').value = f ? f.Keterangan : ''; $('if-tautan').value = f ? (f.TautanURL || '') : '';
   $('if-urutan').value = f ? f.Urutan : (S.ad.konten.infografis.length + 1); $('if-status').value = f ? f.StatusTayang : 'Ya';
   $('if-file').value = ''; $('if-file-nama').textContent = f ? 'Berkas tersimpan — pilih berkas baru untuk mengganti' : 'Pilih gambar atau PDF';
   bukaDrawer('dr-infografis');
 }
 function simpanIg(e) {
   e.preventDefault();
-  try { wajibIsi(['if-judul', 'if-urutan']); if (!$('if-id').value && !$('if-file').files.length) throw new Error('Pilih berkas infografis yang akan diunggah.'); }
+  try {
+    wajibIsi(['if-judul', 'if-urutan']); if (!$('if-id').value && !$('if-file').files.length) throw new Error('Pilih berkas infografis yang akan diunggah.');
+    const tu = $('if-tautan').value.trim(); if (tu && !/^https:\/\/[^\s"'<>]+$/.test(tu)) { $('if-tautan').focus(); throw new Error('Tautan resmi harus berupa alamat lengkap yang diawali https://'); }
+  }
   catch (err) { return toast(err.message, true); }
   const btn = $('if-simpan'); sibuk(btn, true, 'Mengunggah...');
   const f = $('if-file').files[0];
   bacaFile($('if-file'), 5, f && f.type === 'application/pdf' ? 'pdf' : 'gambar').then(function (berkas) {
-    const d = { ID: $('if-id').value, Judul: $('if-judul').value.trim(), Keterangan: $('if-ket').value.trim(), Urutan: $('if-urutan').value, StatusTayang: $('if-status').value, berkas: berkas };
+    const d = { ID: $('if-id').value, Judul: $('if-judul').value.trim(), Keterangan: $('if-ket').value.trim(), TautanURL: $('if-tautan').value.trim(), Urutan: $('if-urutan').value, StatusTayang: $('if-status').value, berkas: berkas };
     return panggil('simpanInfografis', d).then(function (r) {
       gantiBaris(S.ad.konten, 'infografis', r); S.ad.konten.infografis.sort(function (a, b) { return (+a.Urutan || 0) - (+b.Urutan || 0); });
       tandaiBasi(); renderKonten(); tutupDrawer(); toast(d.ID ? 'Infografis diperbarui.' : 'Infografis ditambahkan.');
@@ -3237,7 +3242,7 @@ function pasangEvent() {
 
 
 // ===== BLOK: MULAI =====
-const VERSI_UI = '2026.11.14-1';
+const VERSI_UI = '2026.11.24-1';
 // Peringatan yang terlihat bila aplikasi gagal dimuat (mis. file Index/Style/Script/Code tidak sinkron setelah ditempel).
 function tampilGalatMuat(pesan) {
   if (document.getElementById('galat-muat')) { document.getElementById('galat-muat-teks').innerHTML += '<br>' + pesan; return; }
