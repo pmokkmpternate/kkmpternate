@@ -715,10 +715,10 @@ function renderDbRat() {
   const awal = (st.hal - 1) * st.per;
   $('db-rat-body').innerHTML = rows.length ? irisan(rows, st.hal, st.per).map(function (r, i) {
     return '<tr><td class="sel-no">' + (awal + i + 1) + '</td><td class="nowrap">' + esc(r.Kecamatan) + '</td><td class="nowrap">' + esc(r.Kelurahan) + '</td>' +
-      '<td class="sel-utama nowrap">' + esc(r.NamaKKMP) + '</td><td class="sel-trunc" title="' + esc(r.Alamat) + '">' + esc(r.Alamat) + '</td>' +
+      '<td class="sel-utama nowrap">' + esc(r.NamaKKMP) + '</td>' +
       '<td class="tc">' + esc(r.PelaksanaanKe) + '</td><td class="tc">' + esc(r.TahunBuku) + '</td><td class="nowrap">' + tglBln(r.TanggalRAT) + '</td>' +
       '<td class="nowrap">' + esc(r.Tempat) + '</td><td class="tc">' + lnStatus(r.StatusRAT) + '</td></tr>';
-  }).join('') : '<tr><td colspan="10" class="sel-kosong">Belum ada data RAT yang sesuai.</td></tr>';
+  }).join('') : '<tr><td colspan="9" class="sel-kosong">Belum ada data RAT yang sesuai.</td></tr>';
   $('db-rat-info').textContent = infoRentang(awal, st.per, rows.length, 'data RAT');
   paginasi('db-rat-pag', rows.length, st.hal, st.per, '', function (n) { st.hal = n; renderDbRat(); });
 }
