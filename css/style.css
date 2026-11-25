@@ -9,7 +9,7 @@
   --cepat: .18s cubic-bezier(.2, .7, .3, 1);
   --halus: .45s cubic-bezier(.2, .7, .3, 1);
   --nav-h: 72px;
-  --kkmp-versi: '2026.11.24-1'; /* penanda versi file Style */
+  --kkmp-versi: '2026.11.26-1'; /* penanda versi file Style */
 }
 :root, [data-tema="gelap"] {
   color-scheme: dark;

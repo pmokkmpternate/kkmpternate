@@ -125,10 +125,14 @@ function lnStatus(v) {
   return lencana(v || '-', p[0], p[1]);
 }
 // Status SARPRAS: Sudah (Check Circle), Dalam Proses (Loader), Belum (Circle X). Data kosong ditampilkan sebagai Belum.
-function lnSarpras(v) {
+// g (opsional): data gerai; bila status berasal dari KIB, angka realisasinya tampil sebagai keterangan (tooltip).
+function lnSarpras(v, g) {
   const peta = { 'Sudah': ['ln-sukses', 'check_circle'], 'Dalam Proses': ['ln-perhatian', 'progress_activity'], 'Belum': ['ln-bahaya', 'cancel'] };
   const k = peta[v] ? v : 'Belum';
-  return lencana(k, peta[k][0], peta[k][1]);
+  const html = lencana(k, peta[k][0], peta[k][1]);
+  if (!g || g.SumberSarpras !== 'KIB') return html;
+  const ket = 'Realisasi KIB: ' + angka(g.SarprasRealisasi || 0) + ' dari ' + angka(g.SarprasTarget || 0) + ' item (' + String(g.SarprasPersen || 0).replace('.', ',') + '%)';
+  return html.replace('<span class="lencana ', '<span title="' + esc(ket) + '" aria-label="' + esc(k + '. ' + ket) + '" class="lencana ');
 }
 function warnaProgres(p) { return p >= 75 ? 'pi-hijau' : p >= 50 ? 'pi-kuning' : 'pi-merah'; }
 function isiCfg() {
@@ -735,7 +739,7 @@ function renderDbGerai() {
       '<td class="tc nowrap">' + angka(g.LuasLahan) + ' m²</td><td class="tc nowrap">' + angka(g.LuasBangunan) + ' m²</td>' +
       '<td class="sel-trunc" title="' + esc(g.AlamatGedung) + '">' + esc(g.AlamatGedung) + '</td><td class="sel-mono">' + (g.Latitude && g.Longitude ? esc(g.Latitude) + ', ' + esc(g.Longitude) : '-') + '</td>' +
       '<td class="tc"><button type="button" class="btn btn-ikon btn-hantu btn-kecil" data-foto-db="' + esc(g.ID) + '"' + (g.FotoURL ? '' : ' disabled') + ' aria-label="' + (g.FotoURL ? 'Lihat foto dokumentasi ' : 'Belum ada foto ') + esc(g.NamaKKMP) + '">' + ik('photo_camera') + '</button></td>' +
-      '<td>' + selProgres(p, g.TahapPekerjaan) + '</td><td class="tc">' + lnSarpras(g.StatusSarpras) + '</td><td class="tc">' + lnStatus(g.StatusVerval) + '</td></tr>';
+      '<td>' + selProgres(p, g.TahapPekerjaan) + '</td><td class="tc">' + lnSarpras(g.StatusSarpras, g) + '</td><td class="tc">' + lnStatus(g.StatusVerval) + '</td></tr>';
   }).join('') : '<tr><td colspan="10" class="sel-kosong">Belum ada data gedung/gerai yang sesuai.</td></tr>';
   paginasi('db-gerai-pag', rows.length, st.hal, st.per, '', function (n) { st.hal = n; renderDbGerai(); });
 }
@@ -1630,7 +1634,7 @@ function renderGerai() {
     return '<tr><td class="sel-no">' + (awal + i + 1) + '</td><td class="sel-utama nowrap">' + esc(g.NamaKKMP) + '<span class="sel-sub">Kel. ' + esc(g.Kelurahan) + ', ' + esc(g.Kecamatan) + '</span></td>' +
       '<td class="tc nowrap">' + angka(g.LuasLahan) + ' m²</td><td class="tc nowrap">' + angka(g.LuasBangunan) + ' m²</td>' +
       '<td class="sel-trunc" title="' + esc(g.AlamatGedung) + '">' + esc(g.AlamatGedung) + '</td><td>' + selProgres(p, g.TahapPekerjaan) + '</td>' +
-      '<td class="tc">' + lnSarpras(g.StatusSarpras) + '</td><td class="tc">' + lnStatus(g.StatusVerval) + '</td><td class="tc">' + lnStatus(g.LaporanSIMKOPDES) + '</td>' +
+      '<td class="tc">' + lnSarpras(g.StatusSarpras, g) + '</td><td class="tc">' + lnStatus(g.StatusVerval) + '</td><td class="tc">' + lnStatus(g.LaporanSIMKOPDES) + '</td>' +
       '<td class="tc"><button type="button" class="btn btn-ikon btn-hantu btn-kecil" data-foto-ger="' + esc(g.ID) + '"' + (g.FotoURL ? '' : ' disabled') + ' aria-label="' + (g.FotoURL ? 'Lihat foto ' : 'Belum ada foto ') + esc(g.NamaKKMP) + '">' + ik('image') + '</button></td>' +
       '<td class="nowrap">' + tglBln(g.TerakhirDiperbarui) + '</td><td class="tc">' + tombolAksi('data-ubah-ger', 'data-hapus-ger', g.ID, 'gerai ' + g.NamaKKMP) + '</td></tr>';
   }).join('') : '<tr><td colspan="12" class="sel-kosong">' + (semua.length ? 'Data gerai tidak ditemukan.' : 'Belum ada data gerai. Pilih "Tambah Data Gerai".') + '</td></tr>';
@@ -1640,11 +1644,11 @@ function renderGerai() {
 // Status VERVAL & SARPRAS dibaca dari Hasil Verval (dihitung server); SIMKOPDES aktif hanya bila VERVAL = Sudah.
 function statusOtomatisKop(idKop, g) {
   const sumber = g || (S.ad.gerai || []).filter(function (x) { return x.IDKoperasi === idKop; })[0];
-  return sumber ? { verval: sumber.StatusVerval || 'Belum', sarpras: sumber.StatusSarpras || 'Belum' } : { verval: 'Belum', sarpras: 'Belum' };
+  return sumber ? { verval: sumber.StatusVerval || 'Belum', sarpras: sumber.StatusSarpras || 'Belum', g: sumber } : { verval: 'Belum', sarpras: 'Belum', g: null };
 }
 function aturStatusOtomatisGf(g) {
   const st = statusOtomatisKop($('gf-kop').value, g && g.IDKoperasi === $('gf-kop').value ? g : null);
-  $('gf-sarpras-auto').innerHTML = lnSarpras(st.sarpras);
+  $('gf-sarpras-auto').innerHTML = lnSarpras(st.sarpras, st.g);
   $('gf-verval-auto').innerHTML = lnStatus(st.verval);
   const sel = $('gf-simkopdes'), aktif = st.verval === 'Sudah';
   sel.disabled = !aktif;
@@ -1832,7 +1836,7 @@ function hapusKp(id) {
 // ===== BLOK: M12_KONTEN_BERANDA =====
 S.slEdit = '';
 let aktifkanTabKonten = null;
-const LABEL_CFG = { link_instagram: 'Link Instagram', link_youtube: 'Link YouTube' };
+const LABEL_CFG = { link_instagram: 'Link Instagram', link_youtube: 'Link YouTube', kib_api_url: 'URL Backend KIB Digital' };
 const PLACEHOLDER_CFG = { link_instagram: 'https://www.instagram.com/namaakun', link_youtube: 'https://www.youtube.com/@kanal' };
 function muatKonten(paksa) {
   if (!S.ringkasan) muatRingkasan(true).then(renderVisIg);
@@ -3242,7 +3246,7 @@ function pasangEvent() {
 
 
 // ===== BLOK: MULAI =====
-const VERSI_UI = '2026.11.24-1';
+const VERSI_UI = '2026.11.26-1';
 // Peringatan yang terlihat bila aplikasi gagal dimuat (mis. file Index/Style/Script/Code tidak sinkron setelah ditempel).
 function tampilGalatMuat(pesan) {
   if (document.getElementById('galat-muat')) { document.getElementById('galat-muat-teks').innerHTML += '<br>' + pesan; return; }
