@@ -130,7 +130,8 @@ function lnSarpras(v, g) {
   const peta = { 'Sudah': ['ln-sukses', 'check_circle'], 'Dalam Proses': ['ln-perhatian', 'progress_activity'], 'Belum': ['ln-bahaya', 'cancel'] };
   const k = peta[v] ? v : 'Belum';
   const html = lencana(k, peta[k][0], peta[k][1]);
-  if (!g || g.SumberSarpras !== 'KIB') return html;
+  if (!g || !g.SumberSarpras) return html;
+  if (g.SumberSarpras !== 'KIB') return html.replace('<span class="lencana ', '<span title="Sumber: Hasil Verval (data KIB belum terisi)" class="lencana ');
   const ket = 'Realisasi KIB: ' + angka(g.SarprasRealisasi || 0) + ' dari ' + angka(g.SarprasTarget || 0) + ' item (' + String(g.SarprasPersen || 0).replace('.', ',') + '%)';
   return html.replace('<span class="lencana ', '<span title="' + esc(ket) + '" aria-label="' + esc(k + '. ' + ket) + '" class="lencana ');
 }
