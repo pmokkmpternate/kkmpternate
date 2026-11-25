@@ -1,7 +1,7 @@
 // ============================================================
 // Pratinjau tautan (Open Graph) untuk WhatsApp, Facebook, Telegram, X, dll.
-// Hanya dipanggil untuk robot pratinjau (lihat vercel.json). Pengunjung biasa
-// tetap menerima index.html statis seperti biasa.
+// Dipanggil (lihat vercel.json) untuk semua tautan berita ?hal=detail&id=… — agar pratinjau
+// tampil di aplikasi apa pun — dan untuk robot pratinjau di halaman lain. Hasil di-cache CDN Vercel.
 //  - ?id=BRT-007 → judul, ringkasan, dan foto berita tersebut
 //  - tanpa id    → judul portal + gambar sampul img/og-cover.jpg
 // Data diambil dari backend GAS (publikDetailBerita) memakai GAS_URL di js/config.js.

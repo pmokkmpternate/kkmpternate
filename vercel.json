@@ -3,15 +3,27 @@
     {
       "source": "/",
       "has": [
-        { "type": "header", "key": "user-agent", "value": ".*(WhatsApp|facebookexternalhit|Facebot|meta-externalagent|Twitterbot|TelegramBot|LinkedInBot|Slackbot|Discordbot|SkypeUriPreview|Pinterest|vkShare|redditbot|Applebot|Line/|KAKAOTALK|Iframely|Embedly|Google-InspectionTool|bingbot|Googlebot).*" },
-        { "type": "query", "key": "id", "value": "(?<id>[A-Za-z]{2,5}-[0-9]{1,6})" }
+        {
+          "type": "query",
+          "key": "hal",
+          "value": "detail"
+        },
+        {
+          "type": "query",
+          "key": "id",
+          "value": "(?<id>[A-Za-z]{2,5}-[0-9]{1,6})"
+        }
       ],
       "destination": "/api/pratinjau?id=:id"
     },
     {
       "source": "/",
       "has": [
-        { "type": "header", "key": "user-agent", "value": ".*(WhatsApp|facebookexternalhit|Facebot|meta-externalagent|Twitterbot|TelegramBot|LinkedInBot|Slackbot|Discordbot|SkypeUriPreview|Pinterest|vkShare|redditbot|Applebot|Line/|KAKAOTALK|Iframely|Embedly|Google-InspectionTool|bingbot|Googlebot).*" }
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(WhatsApp|facebookexternalhit|Facebot|meta-externalagent|Twitterbot|TelegramBot|LinkedInBot|Slackbot|Discordbot|SkypeUriPreview|Pinterest|vkShare|redditbot|Applebot|Line/|KAKAOTALK|Iframely|Embedly|Google-InspectionTool|bingbot|Googlebot).*"
+        }
       ],
       "destination": "/api/pratinjau"
     }
