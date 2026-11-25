@@ -99,8 +99,10 @@ module.exports = async (req, res) => {
   if (meta.artikel) html = html.replace(/<title>[\s\S]*?<\/title>/i, '<title>' + esc(meta.judul + ' — ' + NAMA_SITUS) + '</title>');
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
-  // Cache di CDN Vercel 10 menit; boleh dipakai sampai 1 hari sambil diperbarui di latar.
-  res.setHeader('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=86400');
+  // Browser selalu memeriksa ulang (agar tidak memakai index.html lama setelah update);
+  // hanya CDN Vercel yang menyimpan hasilnya 5 menit (cache CDN otomatis dikosongkan tiap deploy baru).
+  res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+  res.setHeader('Vercel-CDN-Cache-Control', 'max-age=300');
   res.statusCode = 200;
   res.end(html);
 };

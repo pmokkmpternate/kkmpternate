@@ -3266,6 +3266,19 @@ function cekVersi(versiServer) {
   if (vIndex !== VERSI_UI) beda.push('Index (' + vIndex + ')');
   if (vStyle !== VERSI_UI) beda.push('Style (' + vStyle + ')');
   if (vServer !== VERSI_UI) beda.push('Code.gs (' + vServer + ')');
+  // Bila hanya Index/Style yang tertinggal (Script & Code.gs sudah sama), penyebabnya cache browser:
+  // ambil ulang halaman tanpa cache sekali secara otomatis sebelum menampilkan peringatan.
+  if (beda.length && MODE_API && vServer === VERSI_UI) {
+    const kunci = 'kkmp_segarkan_' + VERSI_UI;
+    let sudah = false;
+    try { sudah = sessionStorage.getItem(kunci) === '1'; sessionStorage.setItem(kunci, '1'); } catch (e) { sudah = true; }
+    if (!sudah) {
+      const css = document.querySelector('link[rel="stylesheet"][href*="css/style.css"]');
+      Promise.all([fetch(location.href, { cache: 'reload' }), css ? fetch(css.href, { cache: 'reload' }) : null])
+        .catch(function () { /* tetap muat ulang */ }).then(function () { location.reload(); });
+      return;
+    }
+  }
   if (beda.length) tampilGalatMuat('<b>File aplikasi tidak sinkron.</b> Versi Script ' + VERSI_UI + ', tetapi ' + beda.join(', ') + ' berbeda. ' + (MODE_API ? 'Perbarui frontend di GitHub (index.html, css/, js/) dan Code.gs di Apps Script dari paket yang sama, lalu buat <b>Versi baru</b> pada Kelola deployment.' : 'Tempel ulang keempat file (Code, Index, Style, Script) dari folder redesain-v2, simpan, lalu buat <b>Versi baru</b> pada Kelola deployment.'));
 }
 (function mulai() {
