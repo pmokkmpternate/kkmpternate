@@ -1,6 +1,6 @@
 // ============================================================
 // Pratinjau tautan (Open Graph) untuk WhatsApp, Facebook, Telegram, X, dll.
-// Dipanggil (lihat vercel.json) untuk semua tautan berita ?hal=detail&id=… — agar pratinjau
+// Dipanggil (lihat middleware.js) untuk semua tautan berita ?hal=detail&id=… — agar pratinjau
 // tampil di aplikasi apa pun — dan untuk robot pratinjau di halaman lain. Hasil di-cache CDN Vercel.
 //  - ?id=BRT-007 → judul, ringkasan, dan foto berita tersebut
 //  - tanpa id    → judul portal + gambar sampul img/og-cover.jpg
